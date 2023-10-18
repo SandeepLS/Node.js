@@ -1,1 +1,12 @@
 Nodejs is not a front-end or back-end/server, it is a JavaScript Runtime environment which uses Vite8 javascript engine.
+then it includ HTTP module(service).
+
+Ex:-Terminal:- mkdir nodex -> cd nodex -> app.js(create file) -> 
+console.log("Hello World");
+Terminal:-node app.js
+
+Ex:- add two num
+var a=3
+var b=2
+var c=a+b
+console.log("the result is:"+c);

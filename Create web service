@@ -1,0 +1,64 @@
+Web Services:- We have a client, which is your browser.
+          then we have a web service, which wll be on a server.
+          the server nedd to have a uniqe IP address.
+Normally, whenever server we access, it may be google.com, google server,
+every server will have the IP address. And the only way to reach there with the IP address.
+If we want reach the HTTP services/server, we have to mention 2 thinks:1)IP address, 2)Port number.
+
+Ex:-
+Create the function called createServer,which will give you service(it is a create a server for us).
+createServer()
+
+And this server takes a function,whenever we call the server it will execute a function.
+createServer(function())
+
+And this function accept two parameter
+1st parameter is something which recived from the client.
+2nd parameter is something you want to sent the client.
+createServer(function(req,res))
+
+When we have a client server archtecture, the client sent the request, the server sent the response.
+
+we have to sent the response back to the client.(res.write())
+and we have to mention end statement.(res.end())
+createServer(function(req,res){
+    res.write("Welcome back Aline")
+    res.end()
+})
+
+The create server, which is function will be calling, so we have to mention where this create server exist.
+the create function is available in the module is called HTTP.
+var http = require('http)
+createServer(function(req,res){
+    res.write("Welcome back Aline")
+    res.end()
+})
+
+so here in this create server, if you want to call create server -> we have to use http.createServer (Because createServer belongs to http).
+var http = require('http)
+http.createServer(function(req,res){
+    res.write("Welcome back Aline")
+    res.end()
+})
+
+we have to mention Port number
+.listen(8080)
+
+Final Example:-
+var http = require('http')
+
+http.createServer(function(req,res){
+    res.write("Welcome back Aline!!!")
+    res.end()
+}).listen(8080)
+
+----------------OR------------------------
+/*It includ header(Status -> 200)*/
+var http = require('http')
+
+http.createServer(function(req,res){
+    res.writeHead(200, {'Content-Type':'text/html'})
+    res.end("Welcome back Aline!!!")
+}).listen(8080)
+
+

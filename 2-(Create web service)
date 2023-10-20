@@ -6,6 +6,14 @@ every server will have the IP address. And the only way to reach there with the 
 If we want reach the HTTP services/server, we have to mention 2 thinks:1)IP address, 2)Port number.
 
 Ex:-
+var http = require('http')
+
+http.createServer(function(req,res){
+    res.write("Welcome back Aline!!!")
+    res.end()
+}).listen(8080)
+
+/*Explaination
 Step:1) Create the function called createServer,which will give you service(it is a create a server for us).
 createServer()
 
@@ -43,16 +51,7 @@ http.createServer(function(req,res){
 
 Step:7) we have to mention Port number
 .listen(8080)
-
-
-
-Final Example:-
-var http = require('http')
-
-http.createServer(function(req,res){
-    res.write("Welcome back Aline!!!")
-    res.end()
-}).listen(8080)
+*/
 
 ----------------OR------------------------
 /*It includ header(Status -> 200)*/

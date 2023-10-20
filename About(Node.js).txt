@@ -1,3 +1,7 @@
+Find IP address:- in terminal(ipconfig /all)
+                  OR 
+                  (window+R)->type(Ncpa.cpl) -> wi-fi -> Details.
+
 Nodejs is not a front-end or back-end/server, it is a JavaScript Runtime environment which uses Vite8 javascript engine.
 then it includ HTTP module(service).
 

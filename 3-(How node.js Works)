@@ -1,0 +1,8 @@
+Node.js:-https://www.youtube.com/watch?v=YSyFSnisip0&list=PLsyeobzWxl7occsESx2X1E2R2Uw5wCoeG&index=4&ab_channel=Telusko
+Node.js has a two concept 
+(i)Non-blocking I/O(it get the request from the client,the server tell to worker, i got a request, go to ther server and get to the response.) 
+and
+(ii)Ascynchronous(it get the response from the another server and fetch into the client request).
+it has a frame work libuv for non-blocking I/O.
+libuv it built in c, which uses system kernel, in kernel have multiple threads.
+In Node.js you are not using multiple threat,but behind the seen, your kernel is implementing multiple threads.

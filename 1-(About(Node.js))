@@ -4,6 +4,7 @@ Find IP address:- in terminal(ipconfig /all)
 
 Nodejs is not a front-end or back-end/server, it is a JavaScript Runtime environment which uses Vite8 javascript engine.
 then it includ HTTP module(service).
+Node.js as a backend server.
 
 Ex:-Terminal:- mkdir nodex -> cd nodex -> app.js(create file) -> 
 console.log("Hello World");

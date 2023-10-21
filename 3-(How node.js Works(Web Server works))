@@ -5,11 +5,17 @@ for ex:- the client request to server ,for i want currnt data about today match.
         maybe the server getting data from the DataBase,
         maybe the server getting data from the FileSystem.
 if the server is requesting to other server or database, it will take some time to give data(1sec or 2sec)
+see, for 1 client it's take to 2/3 sec, wt if we have multiple client, it means it will take 20/30 sec for respone all clinet(who will waitfor 30sec.)
+how will handle multiple request at the same time. In this case we jave differnet types of server like java(tomcat server)and JavaScript(Node.js).on that time will use multiple threads.
+By default Tomcatserver will provide only 200 threads(it means 200 client). wt abot the 210 client, the last 10 client will have to wait 3sec.
+
+In javaScript don't have concept of multiple thread.
+in Node.js have 1 threads(In Node.js you are not using multiple threat,but behind the seen, your kernel is implementing multiple threads).
+it has a framework libuv for non-blocking I/O.
+libuv it built in c, which uses system kernel, in kernel have multiple threads.
+In Node.js you are not using multiple threat,but behind the seen, your kernel is implementing multiple threads.
 
 Node.js has a two concept:-
 (i)Non-blocking I/O(it get the request from the client,the server tell to worker, i got a request, go to ther server and get to the response.) 
 and
 (ii)Ascynchronous(it get the response from the another server and fetch into the client request).
-it has a frame work libuv for non-blocking I/O.
-libuv it built in c, which uses system kernel, in kernel have multiple threads.
-In Node.js you are not using multiple threat,but behind the seen, your kernel is implementing multiple threads.

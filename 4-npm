@@ -1,0 +1,16 @@
+Node.js:-it provides lot of different features, one of them Non-Blocking I/O, another one is Node Package Manager.
+when we install nodejs, we will get the npm as well.
+
+npm:- Node Package Manager. As a developer when they build application/websites we need to use external dependencies, external libreries so we can do everything from the scretch,we can write entire application by ourself.
+node have lot of inbuilt modules like http, 
+if u have work with file System, we have a module for that,
+if u have work with cryptography, we have a module for that, so nodejs has some inbuilt modules, wt if u want extra modules, or wt if u wants use someone else modules, and that's will the concept of npm.
+
+npm it has million of packages available.like 
+    socket.io(we can create real-time servers/Data sending),
+    mongodb(we connecting for back-end purpose),
+    express(it is a framework of web development in Node.js)(npm install express).
+    
+Basically u can use all the packages,just we can fetch them,& install on ur machine and use them.
+And u can also push your packages, you have a module, which you have created, so u can push that module to the gitHub and entire world will be use it.(npmjs.com)
+npm is a part of gitHub and gitHub is a part of microsoft.

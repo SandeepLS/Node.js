@@ -1,5 +1,12 @@
 Node.js:-https://www.youtube.com/watch?v=YSyFSnisip0&list=PLsyeobzWxl7occsESx2X1E2R2Uw5wCoeG&index=4&ab_channel=Telusko
-Node.js has a two concept 
+Web Server:- it wil be having WebApplication and that WA access by client.
+for ex:- the client request to server ,for i want currnt data about today match. in this case the server will say ok, i will give data.
+        but the were the server gives to data, the server requesting to other server to get the data,
+        maybe the server getting data from the DataBase,
+        maybe the server getting data from the FileSystem.
+if the server is requesting to other server or database, it will take some time to give data(1sec or 2sec)
+
+Node.js has a two concept:-
 (i)Non-blocking I/O(it get the request from the client,the server tell to worker, i got a request, go to ther server and get to the response.) 
 and
 (ii)Ascynchronous(it get the response from the another server and fetch into the client request).

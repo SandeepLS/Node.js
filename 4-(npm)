@@ -1,0 +1,56 @@
+Node.js:-it provides lot of different features, one of them Non-Blocking I/O, another one is Node Package Manager.
+when we install nodejs, we will get the npm as well.
+
+npm:- Node Package Manager. As a developer when they build application/websites we need to use external dependencies, external libreries so we can do everything from the scretch,we can write entire application by ourself.
+node have lot of inbuilt modules like http, 
+if u have work with file System, we have a module for that,
+if u have work with cryptography, we have a module for that, so nodejs has some inbuilt modules, wt if u want extra modules, or wt if u wants use someone else modules, and that's will the concept of npm.
+
+npm it has million of packages available.like 
+    socket.io(we can create real-time servers/Data sending),
+    mongodb(we connecting for back-end purpose),
+    express(it is a framework of web development in Node.js)(npm install express).
+    
+Basically u can use all the packages,just we can fetch them,& install on ur machine and use them.
+And u can also push your packages, you have a module, which you have created, so u can push that module to the gitHub and entire world will be use it.(npmjs.com)
+npm is a part of gitHub and gitHub is a part of microsoft.
+
+---------------------------------------------------------------------
+Modules/Package:- modules as a small Encapsulated Unit, which u can reuse, which u can share with everyone. and which are the easier to maintain.
+Ex: We have a big Problem but solve a big problem, the first step is the Breakdown our bigproblem into small problems, and each small problem will have a small solution, & u can name that small solutions are a problem.
+And the exact of macking small part it is easier to maintain, it is easier to share , and also debug. this concept is called Module.
+
+Ex1:-add.js
+function add(a,b){        //the server create the function, which will be give to Output/
+    return a+b;
+}
+result = add(4,5);        //call the function
+console.log("This is the output:"+result);
+
+
+Ex2:-We created our own module
+(i)add.js:-This is our pgm
+var calc = require('./calc.js')
+
+result = calc(4,5);
+console.log("This is the output:"+result);
+
+--------OR-------
+var calc = require('./calc.js')
+result = calc.add(4,5);
+console.log("This is the output:"+result);
+
+
+(ii)calc.js:-This is our module
+function add(a,b){
+    return a+b;
+}
+module.exports = add;    //Basically we explore all the function, which u want the outsaid user.
+
+-----OR-----
+exports.add = function add(a,b){
+    return a+b;
+}
+
+
+

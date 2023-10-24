@@ -1,0 +1,57 @@
+Reffer:-https://www.geeksforgeeks.org/node-js-vs-express-js/
+Express:-It is a Fast(It make sense), Unopinionated(It will allow it to u whatever we want.express say do whatever u want), Minimalist web framework for Node.js
+
+(i)We want to use express in our project, So first we get express in our code.(then how we can get, Using require function).
+Basically express comming from the third-part-services, It means npm.
+so that's wy we should install express in npmjs.com-> (npm install express)
+when we install express will get other module as well, the other module depends on express.
+Ex:-
+const express = require('express')
+var app = express();
+
+(ii)then we want start the server:-
+const express = require('express')
+var app = express();
+app.listen(9000);
+(:- go to the browser type: localhost:9000)u will get-> Connect Get/
+our server is up and running.
+
+(iii)i want to print here server is started or not
+const express = require('express')
+var app = express();
+app.listen(9000, function(req,res){
+    console.log("Running...");
+})
+(:- it will apear in Terminal)
+
+(iv)we wanted to print Hello World.How, To achive that we have to understand the concept of Router/Routing.
+example,we have a website, will be having multiple links, for different types of links we will pass different request, for that request will be having different response,
+So how to handle a particuler request is decided with the help of Routing concept.
+
+we use express concept, we specified the route,
+app.get -> get is simply fetching data from ther server.
+
+The get will tahe two parameter, 
+1st:-is your URL :- app.get('/',)->Your requesting for Homepage.
+2nd:- once will send the request, we have to execute that function right:-app.get('/',function(req,res))
+      req:-is the data is going client to server
+      res:-is the data is going server to client.
+Ex:-
+const express = require('express')
+var app = express();
+
+app.get('/', function(req,res){
+    res.send("Hello World");
+})
+
+app.listen(9000, function(req,res){
+    console.log("Running...");
+})
+(:- go to the browser type: localhost:9000)u will get-> Hello World.
+
+(V)when we request to alien page:-/alien
+app.get('/alien', function(req,res){
+    res.send("Welcome back alien");
+})
+
+

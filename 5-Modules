@@ -1,0 +1,37 @@
+Modules/Package:- modules as a small Encapsulated Unit, which u can reuse, which u can share with everyone. and which are the easier to maintain.
+Ex: We have a big Problem but solve a big problem, the first step is the Breakdown our bigproblem into small problems, and each small problem will have a small solution, & u can name that small solutions are a problem.
+And the exact of macking small part it is easier to maintain, it is easier to share , and also debug. Manitainance, Sharing, Debugging is more Important. this concept is called Module.
+example, u can create a module,which u can connect to an database,/ which u can write data to a file,/which good for calculation.
+u can share this module everyone in this world theyy can use it. and we can publih our module to a npm.
+
+Ex1:-add.js
+function add(a,b){        //the server create the function, which will be give to Output/
+    return a+b;
+}
+result = add(4,5);        //call the function
+console.log("This is the output:"+result);
+
+
+Ex2:-We created our own module
+(i)add.js:-This is our pgm
+var calc = require('./calc.js')
+
+result = calc(4,5);
+console.log("This is the output:"+result);
+
+--------OR-------
+var calc = require('./calc.js')
+result = calc.add(4,5);
+console.log("This is the output:"+result);
+
+
+(ii)calc.js:-This is our module
+function add(a,b){
+    return a+b;
+}
+module.exports = add;    //Basically we explore all the function, which u want the outsaid user.
+
+-----OR-----
+exports.add = function add(a,b){
+    return a+b;
+}

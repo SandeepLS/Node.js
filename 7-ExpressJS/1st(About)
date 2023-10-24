@@ -1,3 +1,4 @@
+
 Reffer:-https://www.geeksforgeeks.org/node-js-vs-express-js/
 Express:-It is a Fast(It make sense), Unopinionated(It will allow it to u whatever we want.express say do whatever u want), Minimalist web framework for Node.js
 
@@ -54,4 +55,44 @@ app.get('/alien', function(req,res){
     res.send("Welcome back alien");
 })
 
+----------------------------
+(Vi)How, do we accept Dynamic URL:-
+app.get('/alien/:id', function(req,res){
+    const id = req.params.id
+    res.send("Hi Sandeep"+id);
+})
+(:- go to the browser type: localhost:9000/alien/28)-> whatever u can give insted of 28, u will get as per ur OUTPUT.
+-----------------------------
+(Vii):- passing an query String
+app.get('/alien', function(req,res){
+    const id = req.query.id
+    res.send("Welcome back alien"+id);
+})
+(:- go to the browser type: localhost:9000/alien?id=23)
+------------------------------
 
+Final O/P:-
+const express = require('express')
+var app = express();
+
+app.get('/', function(req,res){
+    res.send("Hello World");
+})
+
+app.get('/alien', function(req,res){
+    const id = req.query.id
+    res.send("Welcome back alien"+id);
+})
+
+app.get('/alien/:id', function(req,res){
+    const id = req.params.id
+    res.send("Hi Sandeep"+id);
+})
+
+app.listen(9000, function(req,res){
+    console.log("Running...");
+})
+
+/*
+We used expressjs to create some URL mapping in Node.js
+*/

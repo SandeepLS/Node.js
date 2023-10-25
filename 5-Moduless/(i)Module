@@ -8,3 +8,8 @@ http.createServer(function(req,res){
     res.write("Today DT is:"+myDateTime());
     res.end();
 }).listen(8080)
+
+/*
+Terminal:-node Module.js
+Go ti Browser:-type:- http://localhost:8080/
+*/

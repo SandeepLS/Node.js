@@ -5,6 +5,9 @@ Normally, whenever server we access, it may be google.com, google server,
 every server will have the IP address. And the only way to reach there with the IP address.
 If we want reach the HTTP services/server, we have to mention 2 thinks:1)IP address, 2)Port number.
 
+Node.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).
+To include the HTTP module, use the require() method:
+
 Ex:-
 var http = require('http')          //the 'http' module is imported
 

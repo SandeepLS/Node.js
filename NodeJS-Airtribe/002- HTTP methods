@@ -1,0 +1,29 @@
+HTTP methods:-are used in the web development, to communicate actions b/w clients & servers.
+Here are the most common HTTP methods:-
+1/ Get:
+  Retrieves data from server.
+  Ex:Fetching a list of products.
+
+2/ Post:
+  Send data to the server, to create new resource.
+  Typically used, when submiting forms or sending data to APIs.
+  Ex:Submiting new product to the server.
+
+3/ Put:
+  Updates or replaces an exisiting resource on the server.
+  Ex:Updating an entire product record in database.
+  
+4/Patch:
+  Partially updates a resource on the server.
+  Ex: Updating just price of product.
+
+5/Delete:
+  Delete a resource on the server.
+  Ex:Removing a product from the database.
+
+Explaination:
+Imagin we walking to restorent, an ask for the menu.(that's a Get request),
+Now we decide order the pizza,(that's weare Post request),means insert/add new data.(In api word creating a order/creating new account),
+Now we want to modify our order(here Put will come),It will change from pizza to pastha,
+Then we want to adding extra spice/chees(here Patch request come),
+& finally not if we hungry any more, we descide to cancel our order,(Here Delete method will come)

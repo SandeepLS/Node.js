@@ -1,0 +1,33 @@
+Client:-
+A Client is a computer (Host) i.e. capable of receiving information or using a particular service from the service providers (Servers).
+Server:-
+A Server is a remote computer that provides information (data) or access to particular services.
+
+A client send a request to the server, the server access request from the client,
+then server give response back to the client, which will be information render on the website.
+
+How the Browser Interacts With the Servers:-
+There are a few steps to follow to interacts with the servers of a client:
+  User enters the URL(Uniform Resource Locator) of the website or file,
+  The Browser then requests the DNS(DOMAIN NAME SYSTEM) Server.
+  DNS Server lookup for the address of the WEB Server.
+  The DNS Server responds with the IP address of the WEB Server.
+  The Browser sends over an HTTP/HTTPS request to the WEB Server’s IP (provided by the DNS server).
+  The Server sends over the necessary files for the website.
+  The Browser then renders the files and the website is displayed,
+  This rendering is done with the help of DOM (Document Object Model) interpreter, CSS interpreter, and JS Engine collectively known as the JIT or (Just in Time) Compilers.
+--------------------------------------------------------------------
+Request & Different Component of request:-
+  HTTP Request has a HTTP method, URL(endpoint), Headers, Body.
+    HTTP method: It's like a type of request we macking.(It can be Get, Post, Delete, Put).
+    URL(endpoint): It tells the server, what resource you are looking.
+    Headers: are like the additional instructions we give.(They containe Meta data, such as wt type of content you recive, Authentication related information, Browser type, etc..)
+    Body: contains the data, you sending to the server.(In a Post request, this is were you put the information, you want to send), 
+          Ex:- comment section(The comment related information, Post to the body).
+
+  HTTP Response contains HTTP status code, Hrader, Body.
+    HTTP status code: This is numerical indicator of server ressponse(Common code include: 200 is ok, 404 is NotFound, 500 which is internal server error),
+      It will inform the client, about the Success or failure of request.
+    Headers: Similer to Request header, Response header Carry MetaData about the response.(It include server info, content type, length of the response & cash controll etc...)
+    Body: Not all responses have a body, But when it is present, It contains a data, requested by the client.
+      Ex:- In a Get request, This would be actual resource,user as a requested(It present such as Html page, Images, or data )

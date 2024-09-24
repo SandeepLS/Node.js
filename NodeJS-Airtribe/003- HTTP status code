@@ -1,0 +1,35 @@
+HTTP status code:- these are numerical responses, like a server sends to indicate the outcome of the request,
+made to a website/WebApplication.
+
+They are grouped into five categories:-
+1/ 1xx: Informational
+  These indicate that the request was received and the process is continuing.
+  *100 Continue: The server has received the request headers and is waiting for the body of the request.
+  *101 Switching Protocols: The server is switching protocols as requested by the client.
+
+2/ 2xx: Success
+  These indicate that the request was successfully received, understood, and accepted.
+  *200 OK: The request was successful.(Everything went well)
+  *201 Created: A new resource has been created as a result of the request.
+  *204 No Content: The server successfully processed the request, but there is no content to return.
+
+3/ 3xx: Redirection
+  These indicate that further action needs to be taken by the client to complete the request.(You need to taken extra step)
+  *301 Moved Permanently: The requested resource has been permanently moved to a new location.
+  *302 Found: The resource is temporarily under a different URL.
+  *304 Not Modified: The resource has not been modified since the last request.
+
+4/ 4xx: Client Errors(Which has client side errors)
+  These indicate that there was an error in the request made by the client.
+  *400 Bad Request: The server could not understand the request due to invalid syntax.
+  *401 Unauthorized: Authentication is required to access the resource.
+  *403 Forbidden: The client does not have access rights to the resource.
+  *404 Not Found: The requested resource could not be found on the server.
+  *409 Conflict: There is a conflict with the current state of the resource.
+
+5/ 5xx: Server Errors(Thes are server side errors)
+  These indicate that the server failed to fulfill a valid request.
+  *500 Internal Server Error: The server encountered an unexpected condition & couldn't fell the requests.
+  *502 Bad Gateway: The server received an invalid response from the upstream server.
+  *503 Service Unavailable: The server is currently unable to handle the request (e.g., overloaded or down for maintenance).
+  *504 Gateway Timeout: The server did not receive a timely response from the upstream server.

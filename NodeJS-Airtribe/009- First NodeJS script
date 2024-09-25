@@ -1,0 +1,5 @@
+function add(a, b){
+    const sum = a+b;
+    console.log(`Sum of ${a} & ${b} is ${sum}`)
+}
+add(10, 12);

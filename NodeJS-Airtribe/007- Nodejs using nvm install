@@ -1,0 +1,19 @@
+nvm:- node version manager, using nvm multiple version of node install in our system, we can also update them.
+Ex: one project is dependent one version14 & another project is dependent on version20,
+    if we use nodejs default, we will slitley harder for to upgrade/downgrade nodejs in our system, for different projects,
+    But will be the help of nvm, it is very very easy.
+
+This is easily upgrade/downgrade nodejs in our projects.
+
+
+https://github.com/coreybutler/nvm-window :-
+>node -v
+>nvm
+>nvm install node
+>nvm list
+
+if you want to use older version:
+>nvm install 18
+>nvm use 18
+>nvm list /=> node -v
+>nvm ls

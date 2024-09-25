@@ -1,0 +1,13 @@
+Semantic versioning (semver) in Node.js:-
+is a versioning convention that uses a three-part number system: MAJOR.MINOR.PATCH.
+It’s widely adopted in package management, including Node.js with npm. 
+
+Here's a breakdown of each part:
+MAJOR: Incremented for breaking changes, which are incompatible with previous versions.
+MINOR: Incremented for new features that are backward-compatible.
+PATCH: Incremented for backward-compatible bug fixes.
+
+Example: 1.4.2 (MAJOR.MINOR.PATCH)
+If you make breaking changes: 2.0.0
+If you add new backward-compatible features: 1.5.0
+If you fix bugs without breaking anything: 1.4.3

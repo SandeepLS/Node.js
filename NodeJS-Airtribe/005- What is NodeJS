@@ -1,0 +1,8 @@
+NodeJS:- is a runtime environment, That allowede to run Javascript, outsaid of the web-browser.
+which uses Vite8 javascript engine.
+
+JavaScript Engine:- JavaScript as a language, as a developer write a code for web application, which will work on the browser.
+                    the browser as converted that code into Machine code.
+                    JavaScript engine convert your Js code, and will put it into machine code.
+
+using node.js we can build stand-alone application.

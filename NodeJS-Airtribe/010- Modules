@@ -1,0 +1,91 @@
+Modules:- It's way to speack our code into separet part, mackig it organize/managebale.
+In nodeJS modules are BuildingBlock of our application, a module can be file/folder.
+Modules/Package:- modules as a small Encapsulated Unit, which we can reuse, which we can share with everyone. and which are the easier to maintain.
+
+Types of Node.js Modules
+1/ Built-in Modules: These are pre-installed modules, that come with Node.js, like:
+    fs: File system operations
+    http: Creating HTTP servers
+    path: Working with file and directory paths
+    os: Information about the operating system
+
+    Example: of using a built-in module:
+    (i)file.js:-
+    const fs = require('fs');
+    fs.readFile('file.txt', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(data);
+    });
+
+    (ii)file.txt:-
+        Sandeep
+
+2/ User-defined Modules: These are our custom modules, that we are create and can export to other parts of our application.
+    Ex:
+    (i)file.js;-
+    function add(a,b){
+        return a+b;
+    }
+    module.exports = add;
+    
+    (ii)file1.js:-
+    const add = require('./math');
+    console.log(add(5, 3)); // Output: 8
+
+3/ Third-party Modules: These are modules, that we can install via npm (Node Package Manager). For example:
+    express: A web framework for building applications.
+    mongoose: For working with MongoDB.
+
+    Installing a third-party module:
+    npm install express
+
+    Example of using a third-party module:-
+    const express = require('express');
+    const app = express();
+    
+    app.get('/', (req, res) => {
+      res.send('Hello, world!');
+    }); 
+    app.listen(3000, () => {
+      console.log('Server is running on port 3000');
+    });
+    O/P: http://localhost:3000/
+
+----------------------------------------------------------------------------------------
+Exporting and Importing in Modules:-
+You can export a function, object, or variable using module.exports or exports.
+  Ex:
+  (i)with multiple exports:
+  // math.js
+  function add(a, b) {
+    return a + b;
+  }
+  
+  function subtract(a, b) {
+    return a - b;
+  }
+  
+  module.exports = {
+    add,
+    subtract,
+  };
+  
+  (ii)Importing and using the module:
+  const math = require('./math');
+  console.log(math.add(5, 3)); // Output: 8
+  console.log(math.subtract(5, 3)); // Output: 2
+
+If you're using a newer version of Node.js with ES6 modules, you can also use import and export.
+  Example of ES6 Modules:
+  (i)Exporting:
+  // math.js
+  export function add(a, b) {
+    return a + b;
+  }
+  
+  (ii)Importing:
+  import { add } from './math.js';
+  console.log(add(2, 3)); // Output: 5

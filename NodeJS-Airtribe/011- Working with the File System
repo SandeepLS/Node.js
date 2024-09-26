@@ -1,0 +1,43 @@
+Working with the File System:- 
+This module anyone else interact with FS/Computer, whether we nood read a file/write a file FS module will be helpfull.
+Ex:-
+const  fs = require('fs');
+fs.readFile()
+This function is going to take 3 arguments:
+  1st one fileName,
+  2nd one is encoding that is defaul('utf8'),
+  3rd arg is callBack.(It will take err arg, actual data).
+
+Example;-
+  app.js:-
+  const fs = require('fs');
+  fs.readFile('./example.txt', 'utf8', (err, data)=>{
+      if(err){
+          throw err;
+      }
+      console.log(data);
+  })
+  
+  example.txt:-
+  Sandeeep
+
+  CLG:-node app.js
+------------------------------------------------------------
+Ex:-
+const  fs = require('fs');
+fs.writeFile()
+This function is going to take 3 arguments:
+  1st one fileName,
+  2nd one is content,
+  3rd arg is callBack.(It will take err arg).
+
+Example:-
+  const fs = require('fs');
+  fs.writeFile('./output.txt', "Hello NodeJs content", (err)=>{
+      if(err){
+          throw err;
+      }
+      console.log("File written Successfully");
+  })
+  
+  CLG:-node app.js

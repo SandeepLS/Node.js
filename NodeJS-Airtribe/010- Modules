@@ -1,6 +1,7 @@
 Modules:- It's way to speack our code into separet part, mackig it organize/managebale.
 In nodeJS modules are BuildingBlock of our application, a module can be file/folder.
 Modules/Package:- modules as a small Encapsulated Unit, which we can reuse, which we can share with everyone. and which are the easier to maintain.
+Why do we need Module:- To make code clean & efficient.
 
 Types of Node.js Modules
 1/ Built-in Modules: These are pre-installed modules, that come with Node.js, like:

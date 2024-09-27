@@ -1,0 +1,3 @@
+NodeJs is a single threaded.
+NodeJS is an asynchronous javaScript runtime build on the chrom's, v8 runtime engine.
+In simple word, NodeJS is server sided javascript.

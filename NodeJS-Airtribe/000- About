@@ -1,3 +1,46 @@
 NodeJs is a single threaded.
 NodeJS is an asynchronous javaScript runtime build on the chrom's, v8 runtime engine.
 In simple word, NodeJS is server sided javascript.
+
+Why NodeJS:-
+Lightweight and very fast.
+Many connection can be handled like, Asynchronous and event driven.
+
+Where to use NodeJS:-
+->I/O bound application
+->Data streaming application
+->JSON API based application
+
+Blocking V/S Non-Blocking:-
+  ->Blocking methods execute synchronously like: variable, function, for, if else, while console.log(), DOM api.
+    Non-Blocking methods execute Asynchronously like web API: fetch, promises, setTimeout, setInterval, FS.
+  
+  ->Blocking is when the execution of the code waits, until the currently running operation completes. 
+    Non-Blocking is when the execution of the code does more work, until the currently running operation completes.
+  
+  ->Examples:-
+    (i)Blocking Example (Synchronous Code):-
+    Ex:In blocking code, the next line of code will not execute, until the current operation completes.
+    const fs = require('fs');
+    const data = fs.readFileSync('file.txt', 'utf8');
+    console.log('File content:', data);
+    console.log('This will print after file reading is done.');
+  
+    O/P:-Sandeeep
+         This will print after file reading is done.
+  
+    (ii)Non-Blocking Example (Asynchronous Code):-In non-blocking code, the operation is initiated,
+    and the next lines of code are executed immediately, without waiting for the previous operation to complete.
+    Ex:
+    const fs = require('fs');
+    fs.readFile('file.txt', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('File content:', data);
+    });
+    console.log('This will print before file reading is done.');
+
+    O/P:-This will print after file reading is done.
+         Sandeeep

@@ -1,5 +1,5 @@
 Working with the File System:- 
-This module anyone else interact with FS/Computer, whether we nood read a file/write a file FS module will be helpfull.
+This module anyone else interact with FS/Computer, whether we need read a file/write a file FS module will be helpfull.
 Ex:-
 const  fs = require('fs');
 fs.readFile()

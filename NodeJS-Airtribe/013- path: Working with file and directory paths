@@ -1,0 +1,53 @@
+The path module in Node.js:-
+provides utilities for working with file and directory paths.
+It is useful for resolving, constructing, and normalizing file paths in a cross-platform way (handling differences between Windows and Unix-like systems).
+
+Ex:-
+// Step 1: Import the 'path' module
+const path = require('path');
+
+// Step 2: Working with various path methods
+
+// 1. Get the directory name of a file path
+const dirName = path.dirname('/user/local/bin/file.txt');
+console.log('Directory Name:', dirName);  // Output: '/user/local/bin'
+
+// 2. Get the base name (file name with extension) of a file path
+const baseName = path.basename('/user/local/bin/file.txt');
+console.log('Base Name:', baseName);  // Output: 'file.txt'
+
+// 3. Get the file extension of a file path
+const extName = path.extname('/user/local/bin/file.txt');
+console.log('Extension Name:', extName);  // Output: '.txt'
+
+// 4. Join multiple path segments into one path
+const joinedPath = path.join('/user', 'local', 'bin', 'file.txt');
+console.log('Joined Path:', joinedPath);  // Output: '/user/local/bin/file.txt'
+
+// 5. Resolve a sequence of paths to an absolute path
+const resolvedPath = path.resolve('user', 'local', 'bin', 'file.txt');
+console.log('Resolved Path:', resolvedPath);  // Output: '/currentWorkingDirectory/user/local/bin/file.txt'
+
+// 6. Normalize a path (removes unnecessary `.` or `..`)
+const normalizedPath = path.normalize('/user/local/../bin/file.txt');
+console.log('Normalized Path:', normalizedPath);  // Output: '/user/bin/file.txt'
+
+// 7. Parse a path into an object
+const parsedPath = path.parse('/user/local/bin/file.txt');
+console.log('Parsed Path:', parsedPath);
+// Output:
+// {
+//   root: '/',
+//   dir: '/user/local/bin',
+//   base: 'file.txt',
+//   ext: '.txt',
+//   name: 'file'
+// }
+
+// 8. Format a parsed object back into a path
+const formattedPath = path.format({
+  root: '/',
+  dir: '/user/local/bin',
+  base: 'file.txt',
+});
+console.log('Formatted Path:', formattedPath);  // Output: '/user/local/bin/file.txt'

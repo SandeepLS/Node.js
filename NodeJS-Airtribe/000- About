@@ -44,3 +44,11 @@ Blocking V/S Non-Blocking:-
 
     O/P:-This will print after file reading is done.
          Sandeeep
+----------------------------------------------------------------
+file:- .gitignore
+       node_modules
+The ,gitignore will avoid node_modules while push to github.
+
+git init
+git status
+----------------------------------------------------------------

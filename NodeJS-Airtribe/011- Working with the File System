@@ -1,6 +1,6 @@
 Working with the File System:- 
 This module anyone else interact with FS/Computer, whether we need read a file/write a file FS module will be helpfull.
-Ex:-
+Ex:-ReadFile
 const  fs = require('fs');
 fs.readFile()
 This function is going to take 3 arguments:
@@ -23,7 +23,7 @@ Example;-
 
   CLG:-node app.js
 ------------------------------------------------------------
-Ex:-
+Ex:-WriteFile
 const  fs = require('fs');
 fs.writeFile()
 This function is going to take 3 arguments:

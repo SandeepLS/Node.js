@@ -1,0 +1,40 @@
+The http module allows you to, set up a web server,
+that can respond to incoming requests (such as browser requests) and send back responses.
+
+Steps to Create an HTTP Server
+->Require the http module.
+->Create a server using http.createServer().
+->Listen for incoming requests by specifying a port.
+
+Example: Simple HTTP Server:-
+// Step 1: Import the 'http' module
+const http = require('http');
+
+// Step 2: Create the server
+const server = http.createServer((req, res) => {
+  // This function is called every time a request is made to the server.
+
+  // Step 3: Handle different request URLs (e.g., home page or about page)
+  if (req.url === '/') {
+    // Respond to the root URL
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<h1>Welcome to the Home Page!</h1>');
+    res.end();
+  } else if (req.url === '/about') {
+    // Respond to the "/about" URL
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<h1>About Us</h1><p>This is the about page.</p>');
+    res.end();
+  } else {
+    // Handle 404 Not Found for other URLs
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.write('<h1>404 Not Found</h1>');
+    res.end();
+  }
+});
+
+// Step 4: Listen on a specific port (e.g., 3000)
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

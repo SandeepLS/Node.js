@@ -1,0 +1,13 @@
+Express: is a simple & light weight framework, 
+which simulate a process of creating a web server & api/NodeJS.
+
+To create a first web server:-
+app.js:-
+const express = require('express');
+const app = express();
+
+app.listen(3000, () =>{
+    console.log('server is up and running on port 3000...');
+})
+
+CLG:http://localhost:3000/

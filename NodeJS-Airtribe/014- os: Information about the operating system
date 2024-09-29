@@ -1,0 +1,66 @@
+The os module in Node.js:-
+provides utility methods and properties to interact with the operating system. 
+This module can be used to get information about the OS, 
+like CPU architecture, memory details, hostnames, and more.
+
+Ex:
+// Step 1: Import the 'os' module
+const os = require('os');
+
+// Step 2: Use various methods from the 'os' module
+
+// 1. Get the operating system's default directory for temporary files
+const tempDir = os.tmpdir();
+console.log('Temporary Directory:', tempDir);
+
+// 2. Get the endianness of the CPU (LE = Little Endian, BE = Big Endian)
+const endianness = os.endianness();
+console.log('CPU Endianness:', endianness);  // Example output: 'LE'
+
+// 3. Get the hostname of the operating system
+const hostName = os.hostname();
+console.log('Hostname:', hostName);
+
+// 4. Get the operating system platform (e.g., 'darwin', 'win32', 'linux')
+const platform = os.platform();
+console.log('Platform:', platform);
+
+// 5. Get the CPU architecture (e.g., 'x64', 'arm')
+const arch = os.arch();
+console.log('Architecture:', arch);
+
+// 6. Get information about each CPU core (model, speed, times)
+const cpus = os.cpus();
+console.log('CPUs:', cpus);
+
+// 7. Get the total amount of system memory (in bytes)
+const totalMemory = os.totalmem();
+console.log('Total Memory (bytes):', totalMemory);
+
+// 8. Get the available free memory (in bytes)
+const freeMemory = os.freemem();
+console.log('Free Memory (bytes):', freeMemory);
+
+// 9. Get the network interfaces
+const networkInterfaces = os.networkInterfaces();
+console.log('Network Interfaces:', networkInterfaces);
+
+// 10. Get the uptime of the system (in seconds)
+const uptime = os.uptime();
+console.log('System Uptime (seconds):', uptime);
+
+// 11. Get the operating system release
+const osRelease = os.release();
+console.log('OS Release:', osRelease);
+
+// 12. Get the type of operating system (e.g., 'Linux', 'Darwin', 'Windows_NT')
+const osType = os.type();
+console.log('OS Type:', osType);
+
+// 13. Get the home directory of the current user
+const homeDir = os.homedir();
+console.log('Home Directory:', homeDir);
+
+// 14. Get the system's load average (only supported on Unix-like systems)
+const loadAvg = os.loadavg();
+console.log('Load Average:', loadAvg);

@@ -1,0 +1,63 @@
+CRUD: Create, Read, Update, Delete
+
+Note:-
+Get all movies = /api/movies
+Get single movie = /api/movies/:id
+Create movie = /api/movies {POST}
+Update movie = /api/movies/:id {PUT}
+DELETE movie = /api/movies/:id {DELETE}
+
+Ex: app.js
+const express = require('express');
+const app = express();
+
+//Created server
+app.listen(3000, () =>{
+    console.log('server is up and running on port 3000...');
+})
+
+//After Created the server, send response to the browser
+app.get('/',(req,res) =>{
+    res.send("Hello world from sandeep");
+})
+
+//Now we are desining API's for movies
+const movies = [
+    {
+        id:1,
+        title: "Star wars",
+        year:1977,
+        rating:8.6,
+        actor:["Sandeep","Nicky","Adnan", "Zaki"],
+    },
+    {
+        id:2,
+        title:"The Godfather",
+        year:1972,
+        rating:9.9,
+        actor:["Subha", "Shoheb", "Abdul", "James"],
+    },
+];
+
+//here we get all movies
+app.get("/api/movies", (req, res)=>{
+    res.send(movies);
+})
+
+// app.get("/api/movies/1", (req, res)=>{
+//     res.send(movies[0]);
+// })
+
+// app.get("/api/movies/2", (req, res)=>{
+//     res.send(movies[1]);
+// })
+
+//The above code is not scalabel for accessing single movies, Below the code is scalable.
+app.get('/api/movies/:id', (req, res) =>{
+    const id = req.params.id;
+    const movie = movies.find((movie) => movie.id === parseInt(id));
+    if(!movie){
+        return res.status(404).send('The movie with the given ID was not Found');
+    }
+    res.send(movie);
+});

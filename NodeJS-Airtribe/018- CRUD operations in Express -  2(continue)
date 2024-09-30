@@ -1,0 +1,76 @@
+3/ Create movie = /api/movies {POST}:-
+  Creating a new movie, first we need to get the info from the client(movie info),
+  and take that info and push into movie object.
+  Now wea have to take the data from request.
+  
+  Note:- Middleweare: it help us convert, wtever the user sending,
+        if we are sending JSON, it will help us convert that, will pass it,
+        & give it inside our req body.
+        Ex: app.use(express.json());
+  
+  Ex:
+  /*Post, we are giving data through Postman tool.
+  (Post->localhost:3000/api/movies -> body->raw->JSON->
+  {
+      "title": "RRR",
+      "year": 1977,
+      "rating": 8.9,
+      "actor":["Actor 1","Actor 2"]
+  }
+  )
+  */
+  app.js:-
+  app.use(express.json());  //middleweare
+  
+  app.post('/api/movies', (req, res) =>{
+      const movie = req.body;     //middleweare
+      movie.id = movies.length + 1;
+      movies.push(movie);
+      res.send(movie);
+  })
+
+  Get ->localhost:3000/api/movies ->(check it, if is Posted or not)
+-------------------------------------------------------------------------
+4/ Update movie = /api/movies/:id {PUT}:- It will replaced data to id:2
+  /*Put, we are altering data through Postman tool.
+  (Put->localhost:3000/api/movies/2 -> body->raw->JSON->
+  {
+      "title": "RRR",
+      "year": 1977,
+      "rating": 8.9,
+      "actor":["Actor 1","Actor 2", "Actor 3"]
+  }
+  )
+  */
+
+  app.js:-
+  //PUT
+  app.put('/api/movies/:id', (req,res) =>{
+      const id = req.params.id;   //first we have to find the id from URL/params
+  
+      //Now we will find the particuler movie from movies array.
+      const movie = movies.find((movie) => movie.id === parseInt(id));
+      movie.title = req.body.title;
+      movie.year = req.body.year;
+      movie.rating = req.body.rating;
+      movie.actor = req.body.actor;
+      res.send(movie);
+  })
+
+  Get ->localhost:3000/api/movies ->(check it, if is updated or not)
+-------------------------------------------------------------------------
+5/ DELETE movie = /api/movies/:id {DELETE}:-
+  /*Delete, we are delete data through Postman tool.
+    (Put->localhost:3000/api/movies/1 )
+    */
+
+  app.js:-
+  app.delete('/api/movies/:id', (req, res) =>{
+      const id = req.params.id; //first we access the id, which we want to delete movie/
+      const movie = movies.find((movie) => movie.id === parseInt(id));
+      const index = movies.indexOf(movie);  //find the particuler movie index, for delete it.
+      movies.splice(index, 1); //movies.splice, from this particuler index, it is going to remove 1 entry.
+      res.send(movie);
+  })
+
+   Get ->localhost:3000/api/movies ->(check it, if is delete or not)

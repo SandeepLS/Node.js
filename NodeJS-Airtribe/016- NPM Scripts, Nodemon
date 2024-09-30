@@ -1,0 +1,49 @@
+An npm script:- is a command defined in the package.json file of a Node.js project,
+used to automate common tasks, such as running build processes, tests, or running servers.
+
+Ex:-package.json
+{
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest",
+    "build": "webpack --config webpack.config.js",
+    "dev": "nodemon app.js"
+  }
+}
+You can run these scripts using the npm run command in your terminal.
+For example, to start the server defined by "start": "node app.js", you would run:
+npm run start
+npm start
+------------------------------------------------------------------------------------
+Nodemon:-
+What we have to restart our server, every single time we are macking anything,
+And that's not really great developer, to solve this bug, we are going to use, yet another module called nodemone.
+what nodemone going to do is, it go head & watch our .json file, & every time save over file/everytime changes in a file,
+it is going to restart our file.
+
+Nodemon:- is a tool that helps develop Node.js-based applications by automatically,-
+restarting the server, when file changes are detected in the directory.
+It watches the files in your project and restarts the Node.js server when any changes are made.
+
+Installing Nodemon:-
+  Global installation (available across all projects):
+  npm install -g nodemon
+  
+  Local installation (for a specific project):
+  npm install nodemon --save-dev
+
+Ex:- after install the nodemon dependency, script look like this:
+    {
+    "scripts": {
+        "start": "nodemon app.js"
+      },
+      "author": "san",
+      "license": "ISC",
+      "dependencies": {
+        "express": "^4.21.0"
+      },
+      "devDependencies": {
+        "nodemon": "^3.1.7"
+      }
+    }
+    CLG: npm run start

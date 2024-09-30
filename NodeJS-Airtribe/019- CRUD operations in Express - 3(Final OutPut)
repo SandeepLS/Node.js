@@ -1,0 +1,79 @@
+Ex: CRUD :- app.js
+const express = require("express");
+const app = express();
+
+//middleweare
+app.use(express.json());
+
+//Created server
+app.listen(3000, () => {
+  console.log("server is up and running on port 3000...");
+});
+
+//After Created the server, send response to the browser
+app.get("/", (req, res) => {
+  res.send("Hello world from sandeep");
+});
+
+//Now we are desining API's for movies
+const movies = [
+  {
+    id: 1,
+    title: "Star wars",
+    year: 1977,
+    rating: 8.6,
+    actor: ["Sandeep", "Nicky", "Adnan", "Zaki"],
+  },
+  {
+    id: 2,
+    title: "The Godfather",
+    year: 1972,
+    rating: 9.9,
+    actor: ["Subha", "Shoheb", "Abdul", "James"],
+  },
+];
+
+//here we get all movies
+app.get("/api/movies", (req, res) => {
+  res.send(movies);
+});
+
+//The above code is not scalabel for accessing single movies
+app.get("/api/movies/:id", (req, res) => {
+  const id = req.params.id;
+  const movie = movies.find((movie) => movie.id === parseInt(id));
+  if (!movie) {
+    return res.status(404).send("The movie with the given ID was not Found");
+  }
+  res.send(movie);
+});
+
+//Post, we are giving data through Postman tool.(Post->body->raw->JSON->)
+app.post("/api/movies", (req, res) => {
+  const movie = req.body; //middleweare
+  movie.id = movies.length + 1;
+  movies.push(movie);
+  res.send(movie);
+});
+
+//PUT
+app.put("/api/movies/:id", (req, res) => {
+  const id = req.params.id; //first we have to find the id from URL/params.
+
+  //Now we will find the particuler movie from movies array.
+  const movie = movies.find((movie) => movie.id === parseInt(id));
+  movie.title = req.body.title;
+  movie.year = req.body.year;
+  movie.rating = req.body.rating;
+  movie.actor = req.body.actor;
+  res.send(movie);
+});
+
+//Delete
+app.delete("/api/movies/:id", (req, res) => {
+  const id = req.params.id; //first we access the id, which we want to delete movie/
+  const movie = movies.find((movie) => movie.id === parseInt(id));
+  const index = movies.indexOf(movie); //find the particuler movie index, for delete it.
+  movies.splice(index, 1); //movies.splice, from this particuler index, it is going to remove 1 entry.
+  res.send(movie);
+});

@@ -26,7 +26,7 @@ Request & Different Component of request:-
     URL(endpoint): It tells the server, what resource you are looking.
     Headers: are like the additional instructions we give.(They containe Meta data,
              such as wt type of content you recive, Authentication related information, Browser type, etc..)
-    Body:contains the data, you sending to the server.(In a Post request, this is were you put the information, you want to send), 
+    Body:contains the data,you sending to the server.(In a Post request,this is were you put the information,you want to send), 
           Ex:- comment section(The comment related information, Post to the body).
 
   HTTP Response: contains HTTP status code, Hrader, Body.

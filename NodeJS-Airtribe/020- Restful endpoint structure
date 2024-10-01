@@ -1,0 +1,17 @@
+LocalMachine:-
+  http://localhost:3000/restfulservices/v1/users/{id}
+  http = protocol
+  localhost = Host(domain name)
+  3000 = Port
+  restfulservices = Application context
+  v1 = versioning
+  users = Resource, like Products name
+  {id} = parameter, like Query/Route param
+
+ServerMachine:-
+  https://amazon:3000/restfulservices/v1/users/1
+
+
+
+Note:-Once again gothrought the Airtribe platform
+      NodeJS-> Module 2-> Rest-API & Express.

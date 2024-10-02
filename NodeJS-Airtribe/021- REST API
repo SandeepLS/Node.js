@@ -1,0 +1,25 @@
+Def:-
+REST APIs is a popular way to build scalable and maintainable backend services. 
+REST (Representational State Transfer) is an architectural style,
+that defines a set of rules for creating web services, that can be easily consumed by clients. 
+
+REST (Representational State Transfer) is an architectural style,
+that uses perform HTTP request. ex: CRUD (Create, Read, Update, Delete) operations.
+
+HTTP Methods and REST
+  GET: Retrieve data (Read).
+  POST: Create new data (Create).
+  PUT/PATCH: Update existing data (Update).
+  DELETE: Remove data (Delete).
+
+1/ Setting up the environment
+    mkdir my-rest-api
+    cd my-rest-api
+    npm init -y
+
+2/ Install Dependencies
+   The following packages are commonly used in a REST API:
+      Express: is a minimal and flexible web framework for Node.js.
+      Mongoose: If you're using MongoDB for your database.
+      Cors: To allow Cross-Origin Resource Sharing, enabling your API to be used from different origins.
+

@@ -1,0 +1,45 @@
+API:- Application Programing Interface.
+  is a set of rules, protocols & tools. that allows different software application to communicate with each other.
+  APIs defines the method & data formate, that application can use to request & exchange information.
+  APIs is a collection of Software Function & Procedures.
+->An api is a set of programming code, That enables Data Transmission B/W one software product & Another.
+
+Types:-
+(i)REST API:-
+  Representational State Transfer, is a web-based Application Programing Interface, that follows the rest architectural style.
+  *)Primary purupose of rest, is to provide an architecture for building web-services, that can be consumed by various clients,
+    including web, mobile & desktop application.
+  *)rest is based on http, which is standard protocol used for communication on the internet.
+    It uses http methods, including get, post, put, delete. to perform various operation on the resources.
+    each resource in rest is identified by a unique url, & the response is returned in Json/xml format.
+    One of the esential feature of rest api it follows the, stateless client-server model,-
+    this means the server doesn't store any information about the client's state between request. insted-
+    each request contains all the necessary information. require by the server to process the request.
+    This architecture makes rest api scalabel & easy to maintain.
+  
+  When use rest api:-
+    Building web-services that requira a stateless, scalable, & easy=to maintain.
+    It ideal for building applications, that require crud operation(create, read, update, felete).
+    rest api is also suitable for building application, that require real-time communication.-
+    such as Chat application, Streaming services.
+
+(ii)Web api:-
+    is a border term, that encompasses all types of apis, that can be accessed over the internet, include rest, soap, xml-rpc & etc.
+    Primary purpose of web api is to provide a platform-independent Interface, that cab be used by various clients include web, desktop, mobile application.
+    Web-api uses different protocals include HTTP, HTTTPS & TCP/IP to communicate between the client & servers.
+    web-api doesn't follow a specific architecture /structure.
+    Feature:-Flexible interface That can be used by various clients.
+    
+    
+    When to use Web-api:-
+    It allows developer to access various functionalities of the application including CRUD operation, authentication, authorization etc.-
+    It makes web-api powerful tool for building complex application, that requiers a lot of integration & communication B/W different systems.
+
+(iii)SOAP:-Simple Object Access Protocal
+Which is Messaging protocal used for exchanging structured data B/W different application.
+SOAP api is a web-Based messaging protocal, that follows a SOAP messaging protocol.
+Primary purpose of SOAP, is to provide a standardized way to exchange data B/W applications.
+SOAP uses xml as the format for sending & reciving data, & it supports a wide range of data types, including text, numbers, dates & Binary data.
+SOAP also supports multiple transport protocols, including http, smtp, & ftp.
+
+Features:- set of rules. Web Service Description Language(WSDL).

@@ -1,0 +1,47 @@
+API:- Application Programing Interface.
+  is a set of rules, protocols & tools. that allows different software application to communicate with each other.
+  APIs defines the method & data formate, that application can use to request & exchange information.
+  APIs is a collection of Software Function & Procedures.
+  ->An api is a set of programming code, That enables Data Transmission B/W one software product & Another.
+
+  Ex: Google Maps API.
+    The Google Maps API allows third-party applications to interact with Google Maps services. 
+    With this API, developers can integrate Google Maps functionalities into their own applications,
+    such as embedding maps, searching for places, calculating routes, or fetching location details.
+
+  Types of APIs
+    Web APIs: The most common, enabling interaction between web applications and services,
+              over the internet using HTTP protocols.
+    Operating System APIs: These allow applications to interact with the underlying OS functionalities, 
+              like file systems or networking.
+    Library APIs: These are interfaces provided by software libraries or frameworks to interact with them,
+              like accessing functionality in a programming language.
+
+REST API:-
+REST (Representational State Transfer) is an architectural style for designing networked applications.
+A REST API: is an API, that follows the principles of REST,-
+like to enable communication between a client (like a web browser or mobile app) and a server.
+
+Key Concepts of REST APIs:
+  a/ Stateless: Each request from the client to the server must contain all the necessary information to process the request.
+             The server doesn’t store client context between requests.
+  
+  b/ Client-Server Architecture: The client and server are separate entities. 
+             The client sends requests, and the server responds with the requested data or performs an action.
+  
+  c/ Resource-Based: Everything in REST is treated as a resource (e.g., a user, a product, an order). 
+             These resources are typically represented using URLs.
+  
+  d/ HTTP Methods: REST APIs use standard HTTP methods to interact with resources:
+    GET: Retrieve data (e.g., fetch a list of users).
+    POST: Create a new resource (e.g., create a new product).
+    PUT/PATCH: Update an existing resource (e.g., modify a user's profile).
+    DELETE: Remove a resource (e.g., delete a product).
+
+Example of REST API in Action
+  Consider an online store. We might have the following REST API endpoints:
+  GET /products: Retrieve a list of products.
+  GET /products/123: Retrieve details of a product with ID 123.
+  POST /products: Add a new product.
+  PUT /products/123: Update the product with ID 123.
+  DELETE /products/123: Delete the product with ID 123.

@@ -4,6 +4,9 @@ API:- Application Programing Interface.
   APIs is a collection of Software Function & Procedures.
   ->An api is a set of programming code, That enables Data Transmission B/W one software product & Another.
 
+  It takes specific request predefined when created, & Verifies the request and process the data.
+  Then it perform the processing, & return the response to the user.
+
   Ex: Google Maps API.
     The Google Maps API allows third-party applications to interact with Google Maps services. 
     With this API, developers can integrate Google Maps functionalities into their own applications,
@@ -21,6 +24,9 @@ REST API:-
 REST (Representational State Transfer) is an architectural style for designing networked applications.
 A REST API: is an API, that follows the principles of REST,-
 like to enable communication between a client (like a web browser or mobile app) and a server.
+
+REST is not a framework But an architectural principle.
+REST uses http, Which is oriented around verbs & resource(Get, Post, Put, Delete).
 
 Key Concepts of REST APIs:
   a/ Stateless: Each request from the client to the server must contain all the necessary information to process the request.
@@ -45,3 +51,25 @@ Example of REST API in Action
   POST /products: Add a new product.
   PUT /products/123: Update the product with ID 123.
   DELETE /products/123: Delete the product with ID 123.
+
+-----------------------------------------------------------------------------------
+www => it is good to go. White listed server.
+-----------------------------------------------------------------------------------
+HTTP and HTTPS are both protocols used for transferring data over the internet,
+but HTTPS is a more secure version of HTTP.
+->Http will have request & response architecture.
+->Http request will have URL, Body, Method. Response will have statusCode.
+
+Http request example:-
+  Request Line = Get/doc/test.html HTTP/1.1
+  Request Message Header
+  Request message body = bookId = 1234&author = Tan+Ah+Teck
+
+Http response example:-
+  Status Line = HTTP/1.1 200 ok
+  Response Message Header
+  Response message body = <h1>My home page</h1>
+
+RESTfull end[oint structure:-
+    http://localhost:3000/restfulservices/v1/users/{id}
+

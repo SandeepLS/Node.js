@@ -1,5 +1,7 @@
 HTTP and HTTPS are both protocols used for transferring data over the internet,
 but HTTPS is a more secure version of HTTP.
+->Http will have request & response architecture.
+->Http request will have URL, Body, Method. Response will have statusCode.
 
 HTTP methods:-are used in the web development, to communicate actions b/w clients & servers.
 Here are the most common HTTP methods:-

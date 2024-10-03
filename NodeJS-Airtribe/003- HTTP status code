@@ -11,6 +11,7 @@ They are grouped into five categories:-
   These indicate that the request was successfully received, understood, and accepted.
   *200 OK: The request was successful.(Everything went well)
   *201 Created: A new resource has been created as a result of the request.
+  *203 Non-Authoritative Information.
   *204 No Content: The server successfully processed the request, but there is no content to return.
 
 3/ 3xx: Redirection
@@ -30,6 +31,8 @@ They are grouped into five categories:-
 5/ 5xx: Server Errors(Thes are server side errors)
   These indicate that the server failed to fulfill a valid request.
   *500 Internal Server Error: The server encountered an unexpected condition & couldn't fell the requests.
+  *501 Not Implemented.
   *502 Bad Gateway: The server received an invalid response from the upstream server.
   *503 Service Unavailable: The server is currently unable to handle the request (e.g., overloaded or down for maintenance).
   *504 Gateway Timeout: The server did not receive a timely response from the upstream server.
+  *599 Network timeout.

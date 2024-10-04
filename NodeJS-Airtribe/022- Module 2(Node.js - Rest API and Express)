@@ -70,6 +70,6 @@ Http response example:-
   Response Message Header
   Response message body = <h1>My home page</h1>
 
-RESTfull end[oint structure:-
+RESTfull endpoint structure:-
     http://localhost:3000/restfulservices/v1/users/{id}
 

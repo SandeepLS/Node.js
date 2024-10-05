@@ -70,6 +70,27 @@ Http response example:-
   Response Message Header
   Response message body = <h1>My home page</h1>
 
+HTTP status code:-
+
 RESTfull endpoint structure:-
     http://localhost:3000/restfulservices/v1/users/{id}
+
+    http/https = protocol
+    localhost = Host(domain name)
+    3000 = Port =>The website are usually hosted port no 80/443, 80 is for http call, 443 is resolved for https call.
+    restfulservices = Application context => when we have multiple microServices,(microServices: split everything into smaller services)
+    v1 = versioning
+    users = Resource, like Products name
+    {id} = parameter, like Query/Route param
+
+Use Sub - resources for relations:-
+  -> if resource is related to another resource, use sub resources.
+  -> Get cars/711/driver (Return the list of driver for the car 711)
+     Get cars/711/driver/4 (Return driver #4 for car 711).
+
+Githubcopoilet
+
+  
+
+
 

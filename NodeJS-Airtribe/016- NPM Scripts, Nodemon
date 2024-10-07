@@ -47,3 +47,6 @@ Ex:- after install the nodemon dependency, script look like this:
       }
     }
     CLG: npm run start
+------------------------------------------------------------------------------------------------
+nodemon: if i change any content in my file, i want to start my server again&again. So if i use nodemon
+         we make changes in a file, it is going to restart pur server automatically. 

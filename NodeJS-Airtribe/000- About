@@ -11,6 +11,11 @@ Where to use NodeJS:-
 ->Data streaming application
 ->JSON API based application
 
+Key feature of NodeJS:-
+  ->Single threaded.
+  ->Non0blocking.
+  ->Asynchronous architecture.
+
 Blocking V/S Non-Blocking:-
   ->Blocking methods execute synchronously like: variable, function, for, if else, while console.log(), DOM api.
     Non-Blocking methods execute Asynchronously like web API: fetch, promises, setTimeout, setInterval, FS.

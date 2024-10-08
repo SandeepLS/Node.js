@@ -1,10 +1,16 @@
 Middleware:- It refers to functions, that have access to the request object (req),
     response object (res), and the next function (next) in the application’s request-response cycle. 
     Middleware functions can execute code, modify the request or response objects, end the request-response cycle,
-    or call the next function to pass control to the next middleware function.
+    or call the next function to pass control to the next middleware function, in the stack.
 
 Primary use of express.json() middleware:-
     To parse JSON payload from incoming request.
+
+Middkeware in Express.js?:-
+Middleware function are executed in the order, they are added to app.
+
+In your Express application, you need to restrict access to certain routes. What is the best approach to implement this authorization feature?
+Implement middleware that verifies permission before processing req.
 
 Middleware is commonly used for:
   Logging requests

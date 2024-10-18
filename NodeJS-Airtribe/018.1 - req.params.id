@@ -1,0 +1,11 @@
+The line parseInt(req.params.id) is used to convert the id parameter from the URL 
+(which is typically a string) into an integer. Here's a breakdown:
+
+Explanation:
+  req.params.id: This retrieves the id parameter from the URL.
+  For example, if the client makes a request to /api/v1/courses/3,
+  the value of req.params.id would be '3', which is a string by default.
+
+  parseInt(req.params.id): This converts the id from a string to an integer. 
+  The parseInt() function parses a string and returns an integer. 
+  In the example of /api/v1/courses/3, parseInt('3') would convert the string '3' into the number 3.

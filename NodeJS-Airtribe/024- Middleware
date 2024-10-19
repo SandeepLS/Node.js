@@ -1,3 +1,8 @@
+middleware:- Before every request comming to the server,
+             make sure it will go through the middleware function.
+             In that i will have some common coding, that code will get executed,
+             then post request(this handler) will get executed.
+
 Middleware:- It refers to functions, that have access to the request object (req),
     response object (res), and the next function (next) in the application’s request-response cycle. 
     Middleware functions can execute code, modify the request or response objects, end the request-response cycle,
@@ -75,3 +80,21 @@ Types of Middleware:
     Ex:
     const morgan = require('morgan');
     app.use(morgan('dev')); // Logging requests
+-------------------------------------------------------------------------------------
+use case of middleware:-
+Middleware in Express.js has several important use cases. Here are a few key examples:
+
+Authentication:
+    Checking if a request is coming from an authenticated user before processing it further.
+
+Authorization:
+    Ensuring the user has permission to perform the requested action.
+
+CORS Handling: 
+    Setting headers to allow cross-origin requests where necessary.
+
+Logging:
+    Recording details of requests, such as timestamp, request type, and user agent information, for debugging and monitoring purposes.
+
+Validation/Sanity Checks: 
+    Checking incoming requests for required fields and ensuring data integrity before proceeding to request handlers.

@@ -3,7 +3,7 @@
   and take that info and push into movie object.
   Now wea have to take the data from request.
   
-  Note:- Middleweare: it help us convert, wtever the user sending,
+  Note:-req.body:- it help us convert, wtever the user sending,
         if we are sending JSON, it will help us convert that, will parse it,
         & give it inside our req body.
         Whwen ever the request is incomming, I want to intercept that request, 
@@ -17,6 +17,8 @@
         (like the server is no idea, what type of information is comming, suppose we have to parse it,
         then processd to next process.) so this is the beauty of express.
         Ex: app.use(express.json());
+
+middleware:- Before every request comming to the server, make sure it will go through the middleware function.
   
   Ex:
   /*Post, we are giving data through Postman tool.
@@ -30,7 +32,7 @@
   )
   */
   app.js:-
-  app.use(express.json());  //middleweare
+  app.use(express.json());  //req.body
   
   app.post('/api/movies', (req, res) =>{
       //First find the course from req.body (client has been send).

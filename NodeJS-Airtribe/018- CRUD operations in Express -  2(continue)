@@ -23,7 +23,8 @@
   app.use(express.json());  //middleweare
   
   app.post('/api/movies', (req, res) =>{
-      const movie = req.body;     //middleweare
+      //First find the course from req.body (client has been send).
+      const movie = req.body;  //It has whtever user send the data, req.body.  //midleweare
       movie.id = movies.length + 1;
       movies.push(movie);
       res.send(movie);

@@ -4,8 +4,18 @@
   Now wea have to take the data from request.
   
   Note:- Middleweare: it help us convert, wtever the user sending,
-        if we are sending JSON, it will help us convert that, will pass it,
+        if we are sending JSON, it will help us convert that, will parse it,
         & give it inside our req body.
+        Whwen ever the request is incomming, I want to intercept that request, 
+        check there is a json in the body, if the body contain json &,
+        i want to parse it, give it to the next step.
+        Ex: app.use(express.json());
+        OR
+        We are sending body as Json, from the client said.
+        But the server is no idea, that this request is comming in
+        the body is containing json & server is suppose to parse, the give it to in handler said.
+        (like the server is no idea, what type of information is comming, suppose we have to parse it,
+        then processd to next process.) so this is the beauty of express.
         Ex: app.use(express.json());
   
   Ex:

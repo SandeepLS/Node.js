@@ -3,7 +3,7 @@
   and take that info and push into movie object.
   Now wea have to take the data from request.
   
-  Note:-req.body:- it help us convert, wtever the user sending,
+  Note:- middleware/req.body:- it help us convert, wtever the user sending,
         if we are sending JSON, it will help us convert that, will parse it,
         & give it inside our req body.
         Whwen ever the request is incomming, I want to intercept that request, 
@@ -32,7 +32,7 @@ middleware:- Before every request comming to the server, make sure it will go th
   )
   */
   app.js:-
-  app.use(express.json());  //req.body
+  app.use(express.json());  //middleware/req.body
   
   app.post('/api/movies', (req, res) =>{
       //First find the course from req.body (client has been send).

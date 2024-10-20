@@ -3,6 +3,9 @@ middleware:- Before every request comming to the server,
              In that i will have some common coding, that code will get executed,
              then post request(this handler) will get executed.
 
+             Before handlers are comming to the picture, my function will particuler get called,
+             once called the execution will be processed next step.
+
 Middleware:- It refers to functions, that have access to the request object (req),
     response object (res), and the next function (next) in the application’s request-response cycle. 
     Middleware functions can execute code, modify the request or response objects, end the request-response cycle,
@@ -19,7 +22,7 @@ Implement middleware that verifies permission before processing req.
 
 Middleware is commonly used for:
   Logging requests
-  Handling authentication/authorization
+  Handling authentication/authorization: if the user loged or not.
   Parsing request bodies
   Handling errors
   Serving static files

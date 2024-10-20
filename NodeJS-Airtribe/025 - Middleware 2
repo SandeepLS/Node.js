@@ -1,0 +1,28 @@
+Middleware:-  
+Here we use app.use(express.json()); middleware.
+What is middleware does it:- this middleware 
+Adds the req.body to the req.object, so each route handler function is going to receive a req & res object.
+And by default express does not  add the req body to the req object,
+in order to add the req body to the req object we need to use the express.json() middleware.
+
+Ex:
+When a client make a req to the express app, express app is gooing to send some response to the client.
+But, In b/w req is recive & response is send, there are few things which happens, (Req is recive, Res is send)
+is called ReqRes cycle.
+Ehenever the expressApp recive the req from client, It first create Req & Res Object.
+This is the same req & Res Object, Which is recived an argument for the route handler function. 
+
+This data(Req/Res object) will be used and process, In order to generate & send back meaningfull response.
+In order to process the data in express, we use something called middleware,
+This middleware can manipulate req or res object,-
+//middleware
+....
+next();
+middleware can also be used, execute any other core object,
+Ex: we use express.json() middleware, to get the req body from the req object.
+
+Midlleware is function, that gets executed in b/w reciving a req & sending a response,
+Even the routes, which be define that is also middleware in express.
+
+Reference: https://www.youtube.com/watch?v=w5ix6zyphac
+--------------------------------------------------------------------------------------------------------------

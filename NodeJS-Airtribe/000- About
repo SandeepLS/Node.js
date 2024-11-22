@@ -4,6 +4,7 @@ NodeJS is an asynchronous javaScript runtime build on the chrom's, v8 runtime en
 In simple word, NodeJS is server sided javascript.
 
 Single-threaded:- only one task running in sequential flow. (Do one think at a time).
+  Advantage: Simplicity- No need to manage multiple threads, reducing complexity in code.
 Thread: A thread is the smallest unit of execution within a process.
 
 Node.js is built on the V8 JavaScript engine and follows a single-threaded architecture for executing JavaScript code. 

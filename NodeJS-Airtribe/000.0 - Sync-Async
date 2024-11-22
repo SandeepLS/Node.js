@@ -35,3 +35,17 @@
     Start
     End
     Task completed
+
+  Aspect	    Synchronous	                                              Asynchronous
+  Execution	  Tasks are executed one at a time.	                        Tasks can run concurrently.
+  Blocking	  The program waits for a task to finish before moving on.	The program doesn’t wait; it continues executing.
+  Efficiency	Slower if tasks take time to complete.	                  Faster and more responsive.
+  Example     Reading a file line by line.	                            Fetching data from a server (API calls).
+
+
+When to Use Which
+  Synchronous: When tasks depend on each other, or you need results immediately 
+  (e.g., reading a local file for small configurations).
+  
+  Asynchronous: When tasks are independent, involve waiting
+  (e.g., I/O operations, database queries, network calls), or can be done in parallel for better performance.

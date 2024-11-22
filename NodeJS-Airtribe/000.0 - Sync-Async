@@ -1,0 +1,37 @@
+1. Synchronous Execution
+  In synchronous execution, tasks are performed one after the other, in sequence.
+  A task must complete, before the next one starts.
+  Ex:-
+    console.log("Start");
+    
+    // Simulating a time-consuming task
+    function delayTask() {
+      for (let i = 0; i < 1e9; i++) {} // Simulates delay
+      console.log("Task completed");
+    }
+    delayTask();
+    console.log("End");
+
+    O/P:
+    Start
+    Task completed  //Here, the program waits for delayTask() to finish before moving to the next task.
+    End
+
+2. Asynchronous Execution
+  In asynchronous execution, tasks can be initiated and allowed to run in the background. 
+  The program does not wait for a task to complete, before starting the next one. Instead, 
+  it continues executing the rest of the code, while the task is handled in the background.
+  Ex:
+    console.log("Start");
+    
+    // Simulating an asynchronous task
+    setTimeout(() => {
+      console.log("Task completed");
+    }, 2000);
+    
+    console.log("End");
+    
+    O/P:-
+    Start
+    End
+    Task completed

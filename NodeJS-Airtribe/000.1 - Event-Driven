@@ -1,0 +1,39 @@
+Event-driven programming is a paradigm in which the flow of the program is determined by events, 
+such as user actions (clicks, keypresses), sensor outputs, or messages from other programs.
+
+Key Concepts of Event-Driven Programming:-
+1. Event: An action or occurrence that happens during the runtime of a program. Examples:
+    A button click in a user interface.
+    Receiving data from a server.
+    A timer reaching a specified duration.
+2. Event Listener: A piece of code that "listens" for specific events to occur and executes a function (called a callback) in response.
+3. Callback Function: A function that is executed in response to an event.
+4. Event Loop: A mechanism that continuously monitors and dispatches events to the appropriate event handlers.
+
+------------------------------------------------------------------------------------------
+Node.js and Event-Driven Architecture:-
+Node.js is designed with an event-driven architecture.
+It uses an event loop to handle multiple tasks concurrently,
+even though it operates on a single thread. Events are queued, 
+and corresponding callbacks are executed when the event occurs.
+
+How It Works:
+1. A task is initiated (e.g., a network request or a file read operation).
+2. Instead of blocking the program until the task is complete, it registers an event listener (callback) for when the task finishes.
+3. Once the task is done, the event is emitted, and the corresponding callback is executed.
+
+-------------------------------------------------------------------------------------------
+Example of Event-Driven Code in Node.js
+  const fs = require('fs');
+  
+  // Event-driven file read
+  fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log("File content:", data);
+  });
+  
+  console.log("Reading file...");
+
+  Output: (assuming example.txt exists):
+  Reading file...
+  File content: (file content here)

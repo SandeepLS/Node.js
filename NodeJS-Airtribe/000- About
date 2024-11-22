@@ -9,7 +9,7 @@ Thread: A thread is the smallest unit of execution within a process.
 Node.js is built on the V8 JavaScript engine and follows a single-threaded architecture for executing JavaScript code. 
 However, Node.js cannot handle multiple tasks efficiently. 
 It uses an event loop and asynchronous non-blocking I/O to manage concurrency.
-
+  
 Why NodeJS:-
 Lightweight and very fast.
 Many connection can be handled like, Asynchronous and event driven.

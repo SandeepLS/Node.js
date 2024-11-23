@@ -1,8 +1,37 @@
 HTTP and HTTPS are both protocols used for transferring data over the internet,
 but HTTPS is a more secure version of HTTP.
 ->Http will have request & response architecture.
-->Http request will have URL, Body, Method. Response will have statusCode.
+->Http request will have URL, Body, Method. Response will have statusCode, Body.
+-------------------------------------------------------------------------------------------------------
+1)HTTP:- is a protocol, used for transferring data between a client (browser) and a server. 
+       It is the foundation of communication on the World Wide Web.
 
+    Request-Response Architecture:
+      > A client sends an HTTP request to the server.
+      > The server processes the request and sends back an HTTP response with the requested data.
+
+    Components of HTTP Request:
+      > URL: Specifies the resource's location on the server (e.g., a webpage or API endpoint).
+      > Body: Contains data to send to the server, used primarily in methods like POST or PUT.
+      > Method: Specifies the action to be performed (e.g., GET, POST, PUT, DELETE).
+    
+    Response: Contains:
+      > Status Code: Indicates the result of the request (e.g., 200 OK, 404 Not Found, 500 Internal Server Error).
+      > Body: The content returned by the server, such as an HTML page or JSON data.
+
+2)HTTPS (HyperText Transfer Protocol Secure):-
+    HTTPS is the secure version of HTTP. It encrypts the data transferred between the client and the server, 
+    ensuring confidentiality, integrity, and authentication.
+
+    HTTPS uses SSL/TLS (Secure Sockets Layer / Transport Layer Security) for encryption.
+
+Summary of Differences:-
+Feature  	  HTTP	                                      HTTPS
+Security	  No encryption; data is sent in plain text.	Data is encrypted using SSL/TLS.
+Port	      Uses port 80 by default.	                  Uses port 443 by default.
+Use Case	  Suitable for non-sensitive data.	          Essential for sensitive data (e.g., login, payment).
+Certificate	No SSL/TLS certificate required.	          Requires an SSL/TLS certificate.
+-------------------------------------------------------------------------------------------------------------
 HTTP methods:-are used in the web development, to communicate actions b/w clients & servers.
 Here are the most common HTTP methods:-
 1/ Get:

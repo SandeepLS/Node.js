@@ -1,0 +1,42 @@
+Protocol:- is a set of rules, standards, or procedures that define how data is transmitted,
+and received between devices, systems, or programs in a network.
+Protocols ensure that communication is structured, reliable, and understood by all parties involved.
+
+Types of Protocols:-
+
+1. Network Communication Protocols:-
+    Define how data is transferred over a network.
+    Examples:
+    HTTP/HTTPS: For accessing websites and web services.
+    FTP (File Transfer Protocol): For transferring files.
+    SMTP (Simple Mail Transfer Protocol): For sending emails.
+
+2. Transport Layer Protocols
+    Handle data delivery between devices.
+    Examples:
+    TCP (Transmission Control Protocol): Ensures reliable and ordered delivery of data.
+    UDP (User Datagram Protocol): Sends data quickly but without guaranteed delivery.
+3. Internet Protocols
+    Manage addressing and routing of data across networks.
+    Examples:
+    IP (Internet Protocol): Routes packets between devices.
+    IPv4/IPv6: Versions of IP with different address formats.
+
+4. Security Protocols
+    Ensure secure communication.
+    Examples:
+    SSL/TLS: Encrypts data for secure transmission (used in HTTPS).
+    IPSec: Secures data at the IP layer.
+    
+5. Application Layer Protocols
+    Support specific applications or services.
+    Examples:
+    DNS (Domain Name System): Translates domain names (e.g., google.com) into IP addresses.
+    DHCP (Dynamic Host Configuration Protocol): Assigns IP addresses to devices automatically.
+
+---------------------------------------------------------------------------------------------
+Why Are Protocols Important:-
+Standardization: Allow devices and systems from different manufacturers to communicate.
+Reliability: Ensure data is transmitted without corruption or loss.
+Security: Protect data from unauthorized access and tampering.
+Efficiency: Optimize data transfer to minimize delays and resource usage.

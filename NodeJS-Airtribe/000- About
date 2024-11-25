@@ -1,6 +1,7 @@
 NodeJs is a single threaded.
 NodeJS is an asynchronous javaScript runtime build on the chrom's, v8 runtime engine.
 [it is a JavaScript Runtime environment which uses Vite8 javascript engine.]
+Ex: Runtime environment:- which allowes we to run JavaScript, outsaid of the web browser.
 In simple word, NodeJS is server sided javascript.
 
 Single-threaded:- only one task running in sequential flow. (Do one think at a time).

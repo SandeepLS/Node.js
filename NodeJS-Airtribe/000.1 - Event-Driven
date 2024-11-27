@@ -1,5 +1,16 @@
-Event-driven programming is a paradigm in which the flow of the program is determined by events, 
+Event-driven programming is a design paradigm where program flow is determined by events,
 such as user actions (clicks, keypresses), sensor outputs, or messages from other programs.
+
+Where it Fits:
+High-level programming approach used to build applications,
+especially those requiring asynchronous behavior (e.g., GUIs, web servers).
+
+Aspect	            Event Loop	                                    Event-Driven Programming
+Definition	Mechanism to manage asynchronous tasks.	        Programming paradigm that responds to events.
+Role	    Processes and schedules tasks in phases.	    Defines how a program is structured and interacts.
+Scope	    Internal, runtime feature (Node.js, browser).	High-level, application-specific design pattern.
+Focus	    Low-level execution of queued operations.	    High-level response to events with handlers.
+Example	    Event loop executes a setTimeout callback.	    Defining a click handler for a button.
 
 Key Concepts of Event-Driven Programming:-
 1. Event: An action or occurrence that happens during the runtime of a program. Examples:
@@ -37,3 +48,10 @@ Example of Event-Driven Code in Node.js
   Output: (assuming example.txt exists):
   Reading file...
   File content: (file content here)
+-------------------------------------------------------------------------------------------
+Event Loop:-
+Definition: The event loop is a low-level mechanism that monitors and manages the execution of tasks,
+(callbacks, promises, etc.) in an asynchronous environment.
+
+Role: It continuously checks for tasks in the queue and executes them when appropriate. 
+The loop ensures the program doesn't "block" while waiting for I/O operations.

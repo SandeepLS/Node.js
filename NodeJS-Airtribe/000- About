@@ -5,12 +5,15 @@ Ex: Runtime environment:- which allowes we to run JavaScript, outsaid of the web
 In simple word, NodeJS is server sided javascript.
 
 Single-threaded:- only one task running in sequential flow. (Do one think at a time).
+  Ther can be only one single process, which can be execute, It is going to utilize a one single core,
+  No matter our system has 8 core machine/16 core machine, It doesn't matter.
   Advantage: Simplicity- No need to manage multiple threads, reducing complexity in code.
 Thread: A thread is the smallest unit of execution within a process.
 
 Node.js is built on the V8 JavaScript engine and follows a single-threaded architecture for executing JavaScript code. 
 However, Node.js cannot handle multiple tasks efficiently. 
-It uses an event loop and asynchronous non-blocking I/O to manage concurrency.
+NodeJS uses an event driven and asynchronous non-blocking I/O model, that makes it light weight & efficient,-
+Many connection can be handled concurrently.
   
 Why NodeJS:-
 Lightweight and very fast.
@@ -57,7 +60,7 @@ Blocking V/S Non-Blocking:-
     });
     console.log('This will print before file reading is done.');
 
-    O/P:-This will print after file reading is done.
+    O/P:-This will print before file reading is done..
          Sandeeep
 ----------------------------------------------------------------
 file:- .gitignore

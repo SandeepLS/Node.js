@@ -6,6 +6,7 @@ Ex: one project is dependent one version14 & another project is dependent on ver
 Node Version Manager:-
 nvm: Multiple nodeJS version install in our system, we can juggle around the very very easy. 
 This is easily upgrade/downgrade nodejs in our projects.
+Using nvm to install nodejs, if incase juggle around nodeJS version, easily we can do that.
 
 In browser type: nvm windows   /OR
 https://github.com/coreybutler/nvm-window :-

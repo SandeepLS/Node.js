@@ -63,4 +63,63 @@ Size	        Can be large (all dependency files).	            Small, just metada
     7. Global Request and Response Interceptors
     8. Retry Failed Requests
 
+*)What is module, how do we create module.
+
+*) Compare CommonJS vs ES6:-
+   CommonJS and ES6 modules are both systems used, to handle module imports and exports in JavaScript, 
+   but they have some key differences:
+   1. Syntax:
+      CommonJS: Uses require() and module.exports. 
+                For example, const moduleName = require('module') and 
+                             module.exports = { functionName }.
+      ES6 Modules: Uses import and export statements. 
+                   For example, import { functionName } from 'module' and
+                                export function functionName() {}.
+   
+   2. Execution:
+      CommonJS: Modules are loaded synchronously, 
+                which means that the code execution is blocked until the module is loaded.
+      
+      ES6 Modules: Can be loaded asynchronously,
+                   which does not block the execution and is beneficial for performance, especially in web environments.
+   
+   3. Inclusion in Node.js:
+      CommonJS: This is the standard module system in Node.js, and has been around for a longer time.
+      ES6 Modules: Can be used in Node.js by specifying "type": "module" in package.json or using .mjs file extensions.
+   
+   4. Usage:
+      CommonJS: Primarily used in Node.js environments.
+      ES6 Modules: More widely adopted in both browser and Node.js environments due to standardization.
+
 *) .gitIgnore     //1h:22m
+   If i want to avoid pushing node_modules dependencies/Unnecessary/Password code to the github:
+   we should create .gitignore file. & mention the file which we don't want to push github.
+   Ex:>git status
+      >git init
+      >git status [Here will show, which files are ready to push gitHub, & node_modules are disappear]
+   And if we give my code, to another developer, just we inform to him, he just install npm node_modules, then you start your server.
+   Ex:>npm i
+
+*)Environment variables in NodeJS:-
+   const someVar = "something";
+   console.log({someVar});
+
+   console.log({ env: process.env.NODE_ENV});
+   Then we have to create .env file [ NODE_ENV:dev ] 
+   >node app.js
+   {env:undefine}
+         OR
+   >export NODE_ENV=development   OR >NODE_ENV=dev node app.js   //temporary way in linux
+   {env:development}   
+         OR
+   dotenv website:- we get install command & module.
+   > npm install dotenv
+   Then we have to import the module: require('dotenv').config() [in app.js]
+   >node app.js
+   { env: 'dev' }
+
+*)Concurrent & Parallel 1:55m
+
+   
+
+

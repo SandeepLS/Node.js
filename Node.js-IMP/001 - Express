@@ -1,0 +1,48 @@
+Express:-
+  Express.js is a minimal and flexible Node.js web application framework, 
+  that provides robust features, for building web and mobile applications.
+  -> Express: is a simple & light weight framework, 
+     which simulate a process of creating, a web server & api/NodeJS.
+
+Key Features of Express.js:
+  1. Routing:
+  Express provides a powerful routing mechanism for defining application endpoints and handling HTTP requests (GET, POST, PUT, DELETE, etc.).
+  
+  2. Middleware Support:
+  Middleware functions in Express are used to process requests and responses, such as handling authentication, logging, parsing, and error handling.
+  
+  3. Template Engines:
+  Supports integration with various template engines (e.g., EJS, Pug, Handlebars) to dynamically render HTML pages.
+  
+  4. Error Handling:
+  Built-in mechanisms for handling application errors and customizing error responses.
+  
+  5. Extensibility:
+  Easily extendable via third-party or custom middleware modules from the Node.js ecosystem.
+  
+  6. Simplified Development:
+  Express simplifies working with the HTTP protocol and abstracts repetitive tasks like setting up headers, parsing JSON, etc.
+  
+  7. Static File Serving:
+  Ability to serve static assets such as CSS, JavaScript, and images using its express.static middleware.
+  
+  8. Scalability:
+  Lightweight and designed to build applications that scale efficiently.
+
+Example:-
+const express = require('express');  //This line imports the express module into your application.
+const app = express();  //The express() function initializes an Express application.
+
+app.get('/', (req, res) => {  //app.get() defines a route to handle GET requests to the path /
+  res.send('Hello, World!');
+});
+  /*Callback Function: (req, res) => { ... } is executed when the route is accessed.
+  req (request): Contains details of the incoming request (e.g., URL, headers).
+  res (response): Provides methods to send a response to the client.
+  res.send('Hello, World!'): Sends a simple text response "Hello, World!" to the client.
+  */
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
+//app.listen(3000) tells your application to start listening for incoming requests on port 3000.

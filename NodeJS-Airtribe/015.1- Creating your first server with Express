@@ -5,24 +5,29 @@ To create a first web server:-
 Step1:-Create a server
 app.js:-
 const express = require('express');
-const app = express();
+const app = express();    //we need to create, one instence of this express & we call the constructor function() of express.
 
-app.listen(3000, () =>{
+//start server
+app.listen(3000, () =>{    //this fun() is going to take two parameter, 1st is PortNum, 2nd is callback().
     console.log('server is up and running on port 3000...');
 })
+/*the req is definetly going to our webServer, but our server is no idea, How to handle this particuler / route.
+this is going to be a getReq, but our server is no idea, How to handle the getReq (Connect GET /).
+*/
 
 CLG:http://localhost:3000/
 -------------------------------------------------------------
 Step2:-Handle the get response
 app.js:-
 const express = require('express');
-const app = express();
+const app = express();    
 
-app.listen(3000, () =>{
+app.listen(3000, () =>{ 
     console.log('server is up and running on port 3000...');
 })
 
-app.get('/',(req,res) =>{
+//Here handle this particuler / route or URL(/).
+app.get('/',(req,res) =>{    
     res.send("Hello world");
 })
 

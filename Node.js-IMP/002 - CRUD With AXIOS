@@ -55,3 +55,29 @@ Ex-2:- POST Request:
         console.error('Error creating post:', error);
       });
       
+3. PUT Request with Axios
+  The PUT method is typically used to update an existing resource.
+  const axios = require('axios');
+  axios.put('https://jsonplaceholder.typicode.com/posts/1', {
+    id: 1, // Resource ID
+    title: 'Updated Title',
+    body: 'This content has been updated using a PUT request.',
+    userId: 1
+  })
+    .then(response => {
+      console.log('Resource updated successfully:', response.data);
+    })
+    .catch(error => {
+      console.error('Error updating resource:', error.message);
+    });
+
+4. DELETE Request with Axios
+  The DELETE method is used to delete a resource.
+  const axios = require('axios');
+  axios.delete('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+      console.log('Resource deleted successfully:', response.status); // Status will typically be 200 or 204
+    })
+    .catch(error => {
+      console.error('Error deleting resource:', error.message);
+    });

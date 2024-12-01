@@ -1,4 +1,4 @@
-An npm script:- is a command defined in the package.json file of a Node.js project,
+on An npm script:- is a command defined in the package.json file of a Node.js project,
 used to automate common tasks, such as running build processes, tests, or running servers.
 
 Ex:-package.json
@@ -26,10 +26,14 @@ restarting the server, when file changes are detected in the directory.
 It watches the files in your project and restarts the Node.js server when any changes are made.
 
 Installing Nodemon:-
+Here nodemon, i don't want to install in dependencies,
+nodemon i need only in development environment, and not in production.
+npm install nodemon --save-dev
+
   Global installation (available across all projects):
   npm install -g nodemon
   
-  Local installation (for a specific project):
+  Local installation (for a specific project): Take this one(seperate):-
   npm install nodemon --save-dev
 
 Ex:- after install the nodemon dependency, script look like this:

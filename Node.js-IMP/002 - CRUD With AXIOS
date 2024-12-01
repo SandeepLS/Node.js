@@ -3,6 +3,8 @@ Axios is a popular JavaScript library, used for making HTTP requests, from web b
 It simplifies, the process of interacting with APIs and fetching or sending data over HTTP/HTTPS. 
 Axios is built on top of the Promise API, making it easy to handle asynchronous operations, in a clean and readable way.
 
+Axios and Fetch are similar, in that both are used to make HTTP requests in JavaScript.
+
 Key Features of Axios:
   1. Supports All HTTP Methods:
   Makes requests using methods like GET, POST, PUT, DELETE, PATCH, etc.

@@ -50,7 +50,7 @@ app.get("/api/movies/:id", (req, res) => {
 
 //Post, we are giving data through Postman tool.(Post->body->raw->JSON->)
 app.post("/api/movies", (req, res) => {
-  const movie = req.body; //middleweare
+  const movie = req.body; //middleweare(What_ever the client is sending)
   movie.id = movies.length + 1;
   movies.push(movie);
   res.send(movie);

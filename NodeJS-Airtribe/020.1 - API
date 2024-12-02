@@ -4,14 +4,44 @@ is a set of rules & definitions, That allows different software applications to 
 Purpose of API, It enable integration & interaction between different systems,
 macking it possible to share data & functionality.
 
+Example:- Imagin it's my first day at school, i will go to our class-teacher[API],
+and i ask some kind of information[API request] like Time-table, Name of subject teacher, materials etc.
+Now teacher will ask my details(profile)[parameter] like Name , RollNum.
+Then teacher goes to the office room, she retrive all data based on my profile.
+& She gave us all mandatory information[API response].
+
 Types:-
   1. Web APIs: Allows communication, over the internet using HTTP/HTTPS
      Ex:
      A. REST: Uses HTTP method like GET, POST, PUT & DELETE. often uses JSON for data.
      B. SOAP: Uses XML and is known for strong security & transaction support.
      C. GraphQL: Allows client, to request specific data they need. Making data retrival efficient.
+     D. WebSocket API: It enables real-time, two-way communication b/w the client & server, over a persistent connection.
   
   2. Library APIs: It provided by software libraries, to interact with their feature.
   3. Operating System APIs: It Enable applications to interact with the OS.
   4. Database APIs: Allows applications to communicate with database.
 
+API Component:-
+  1. Endpoint: The specific URL, where the API can be accessed.
+               http://localhost:3000/restfulservices/v1/users/{id}
+  2. Request & Respons:
+     The Request from the client includes Parameters, Headers & Body.
+     The Response from the server includes status-code & data.
+  
+  3. Methods: are GET(retrive data), POST(submit data), PUT(update data), DELETE(remove data).
+  
+  4. Authentication & Authorization: Ensure the only authorized clients, can access the API.
+     Common methods include API keys & tokens.
+
+Example of API usage:-
+  -> Social Media Integration.
+  -> Payment Getway.
+  -> Maps & Location Services.
+  -> Messaging Services.
+
+Benefits of APIs:-
+  Modularity: It allows building applications in parts, independently.
+  Integration: It facilitates interaction b/w different systems.
+  Efficiency: Speeds up development, by reusing existing component.
+  Scalability: Makes it easier to scale parts of the system independently.

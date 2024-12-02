@@ -3,8 +3,14 @@ REST APIs is a popular way to build scalable and maintainable backend services.
 REST (Representational State Transfer) is an architectural style,
 that defines a set of rules for creating web services, that can be easily consumed by clients. 
 
-REST (Representational State Transfer) is an architectural style,
-that uses perform HTTP request. ex: CRUD (Create, Read, Update, Delete) operations.
+REST (Representational State Transfer):-
+A widely used web API architecture, That operates over HTTP And uses URLs for resource identifications.
+It primarily relies on standard HTTP methods. like:GET, POST, PUT & DELETE / CRUD (Create, Read, Update, Delete) operations.
+Ex: Fetching data from a REST API
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log('Error:', error));
 
 HTTP Methods and REST
   GET: Retrieve data (Read).
@@ -21,5 +27,5 @@ HTTP Methods and REST
    The following packages are commonly used in a REST API:
       Express: is a minimal and flexible web framework for Node.js.
       Mongoose: If you're using MongoDB for your database.
-      Cors: To allow Cross-Origin Resource Sharing, enabling your API to be used from different origins.
+      Cors: To allow Cross-Origin Resource Sharing, enabling our API to be used from different origins.
 

@@ -1,0 +1,17 @@
+API(Application Programming Interface):-
+is a set of rules & definitions, That allows different software applications to communicate with each other.
+
+Purpose of API, It enable integration & interaction between different systems,
+macking it possible to share data & functionality.
+
+Types:-
+  1. Web APIs: Allows communication, over the internet using HTTP/HTTPS
+     Ex:
+     A. REST: Uses HTTP method like GET, POST, PUT & DELETE. often uses JSON for data.
+     B. SOAP: Uses XML and is known for strong security & transaction support.
+     C. GraphQL: Allows client, to request specific data they need. Making data retrival efficient.
+  
+  2. Library APIs: It provided by software libraries, to interact with their feature.
+  3. Operating System APIs: It Enable applications to interact with the OS.
+  4. Database APIs: Allows applications to communicate with database.
+

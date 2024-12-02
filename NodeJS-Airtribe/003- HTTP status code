@@ -36,3 +36,6 @@ They are grouped into five categories:-
   *503 Service Unavailable: The server is currently unable to handle the request (e.g., overloaded or down for maintenance).
   *504 Gateway Timeout: The server did not receive a timely response from the upstream server.
   *599 Network timeout.
+
+404:- server is telling client, i could not handle this request,
+there is no error on my said, your are sending something else, i have no idea how to handle this api call.

@@ -28,6 +28,8 @@ like to enable communication between a client (like a web browser or mobile app)
 REST is not a framework But an architectural principle.
 REST uses http, Which is oriented around verbs & resource(Get, Post, Put, Delete).
 
+REST API architecture:- 17:10sec
+
 Key Concepts of REST APIs:
   a/ Stateless: Each request from the client to the server must contain all the necessary information to process the request.
              The server doesn’t store client context between requests.

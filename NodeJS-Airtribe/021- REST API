@@ -1,7 +1,7 @@
 Def:-
 REST APIs is a popular way to build scalable and maintainable backend services. 
 REST (Representational State Transfer) is an architectural style,
-that defines a set of rules for creating web services, that can be easily consumed by clients. 
+or design pattern for building networked applications, specifically web services. that can be easily consumed by clients. 
 
 REST (Representational State Transfer):-
 A widely used web API architecture, That operates over HTTP And uses URLs for resource identifications.

@@ -1,0 +1,56 @@
+The line app.use(express.json()); in your Express application is middleware,
+that allows our server, to parse incoming JSON payloads in the body of HTTP requests. 
+
+1. What is Middleware in Express?
+Middleware in Express is a function, that intercepts incoming requests, and
+processes them before they reach our route handlers, or after the route handlers have executed.
+  It can:
+  Parse request data.
+  Authenticate users.
+  Log request details.
+  Handle errors.
+The middleware app.use(express.json()) is specifically for parsing JSON data.
+
+2. What Does express.json() Do?
+  Parses the Body: It parses the body of incoming requests that have a Content-Type of application/json.
+  Attaches the Data to req.body: After parsing, the JSON data is attached to the req.body property, 
+  making it accessible in your route handlers.
+  
+  For example: If you send a POST request with the following JSON payload:
+  {
+    "title": "Inception",
+    "year": 2010,
+    "rating": 8.8,
+    "actor": ["Leonardo", "Joseph", "Ellen"]
+  }
+  
+  After the request is processed by express.json(), you can access this data in your route like this:
+  app.post('/api/movies', (req, res) => {
+    console.log(req.body);
+  });
+  
+  The req.body will now contain:
+  {
+    title: "Inception",
+    year: 2010,
+    rating: 8.8,
+    actor: ["Leonardo", "Joseph", "Ellen"]
+  }
+
+3. Why Is It Needed?
+  By default, Express does not know how to parse the body, of an incoming request.
+  Without express.json(), the req.body would be undefined for JSON payloads.
+
+4. When to Use It?
+  Use express.json() when:
+    Your application receives requests with a JSON body.
+    You want to handle data submitted via POST, PUT, or PATCH methods.
+
+Example:-
+app.use(express.json());
+app.post('/api/movies', (req, res) =>{
+    const movie = req.body;
+    movie.id = movies.length+1;
+    movies.push(movie);
+    res.send(movie);
+})

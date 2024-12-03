@@ -49,5 +49,21 @@ If another server is running, check it:-
     "description": "An old description"
   }
 
-*)Creating new folder for routes:-
-All my routes putit into separeate folder.
+*)Creating new folder for routes:- 45:0s
+  All my routes putit into separeate folder.
+    app.js:-
+      const courseRouter = require('./routes/course')
+      app.use('/', courseRouter)
+    
+    routes/course.js:-
+      const express = require('express');
+      const router = express.Router();
+      const courses = [ ]
+      get, getALL, Post, Put, Delete [ Describe the neede code]
+      module.exports = router;
+
+*)
+routes/course.js:- 45:00s
+controllers/course.js:-
+debugging:- 1:10:00s
+            1:15:00s

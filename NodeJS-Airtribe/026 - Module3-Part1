@@ -1,0 +1,53 @@
+If another server is running, check it:-
+  >lsof -i :3000
+  >kill -9 pastePIDnumber
+  
+*)Put method:-
+  Use PUT when you want to replace, the entire resource with a new one. 
+  This means we must include all fields in the request, even if only one field is being updated.
+  Example:
+  Suppose you have a resource:
+  {
+    "id": 1,
+    "name": "Old Course",
+    "rating": 4.0,
+    "description": "An old description"
+  }
+  
+  PUT Request: PUT /api/v1/courses/1
+  Content-Type: application/json
+  {
+    "id": 1,
+    "name": "Updated Course",
+    "rating": 5.0,
+    "description": "An updated description"
+  }
+  Result: The entire resource is replaced, so all fields must be included in the payload.
+
+*)Patch method:-
+  Use PATCH when you want to modify specific fields of a resource without affecting others.
+  Example:
+  Suppose you have the same resource:
+  {
+    "id": 1,
+    "name": "Old Course",
+    "rating": 4.0,
+    "description": "An old description"
+  }
+  
+  PATCH Request: PATCH /api/v1/courses/1
+  Content-Type: application/json
+  {
+    "rating": 5.0
+  }
+  
+  Result: Only the rating field is updated. The other fields remain unchanged:
+  {
+    "id": 1,
+    "name": "Old Course",
+    "rating": 5.0,
+    "description": "An old description"
+  }
+
+*)Creating new folder for routes:-
+All my routes putit into separeate folder.

@@ -55,7 +55,7 @@ app.post('/api/movies', (req, res) =>{
     res.send(movie);
 })
 -------------------------------------------------------------------------------
-IMP Ques:- About middleware
+IMP Ques:- About middleware [you can see example of below ques in chatGPT.]
 1. In express, what is the purpose of the next() function in middleware functions?
    Ans:- To parse controll the next middleware function, in the stack.
 

@@ -54,3 +54,17 @@ app.post('/api/movies', (req, res) =>{
     movies.push(movie);
     res.send(movie);
 })
+-------------------------------------------------------------------------------
+IMP Ques:- About middleware
+1. In express, what is the purpose of the next() function in middleware functions?
+   Ans:- To parse controll the next middleware function, in the stack.
+
+2. While designing a REST API in for a blog platform how would you enable clients to fetch a list of all comments associated with a specific blog?
+   Ans:  GET /blogs/123/comments
+
+3. In your Express application, you need to restrict access to certain routes. What is the best approach to implement this authorization feature?
+   Ans: We should implement reusable Middleware, that verifies permission before processing req.
+   Create reusable middleware functions to handle authorization logic,
+   These functions will check whether a user has the required permissions before allowing access to the route.
+
+4. Middleware function are executed in the order, they are added to app.

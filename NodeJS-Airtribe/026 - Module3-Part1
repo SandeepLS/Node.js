@@ -62,8 +62,11 @@ If another server is running, check it:-
       get, getALL, Post, Put, Delete [ Describe the neede code]
       module.exports = router;
 
-*)
-routes/course.js:- 45:00s
-controllers/course.js:-
-debugging:- 1:10:00s
-            1:15:00s
+  ->routes/course.js:- 45:00s
+  ->controllers/course.js:-
+  ->debugging:- 1:10:00s, 1:15:00s
+    Another way to debugging "dev":"nodemon --inspect-brk app.js"
+    chrome://inspect :The URL Where our debugger will be mountain & it as where my sever is running.
+      Then click on inspect.
+
+  

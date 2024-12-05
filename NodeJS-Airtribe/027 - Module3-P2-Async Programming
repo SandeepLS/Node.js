@@ -18,6 +18,8 @@
     Start
     End
     Task completed
+
+Note:- A tasks are executed without waiting for previous tasks to complete.
 -----------------------------------------------------------------------------------------------------------------
 2. Non-Blocking/Asynchronouse:-
   Async Programming is also know as Non-Blocking, In non-blocking code, the operation is initiated,

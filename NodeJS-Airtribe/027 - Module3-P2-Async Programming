@@ -1,0 +1,83 @@
+1. Async Programming:=
+  In asynchronous execution, tasks can be initiated and allowed to run in the background, 
+  The program does not wait for a task to complete, before starting the next one. Instead, 
+  it continues executing the rest of the code, while the task is handled in the background.
+  Asynchronously like web API: fetch, promises, callback, callsetTimeout, setInterval, FS.
+  Ex:
+    console.log("Start");
+    
+    setTimeout(() => {  // Simulating an asynchronous task
+      console.log("Task completed");
+    }, 2000);
+    
+    console.log("End");
+    
+    O/P:-
+    Start
+    End
+    Task completed
+-----------------------------------------------------------------------------------------------------------------
+2. Non-Blocking/Asynchronouse:-
+  Async Programming ia also know as Non-Blocking, In non-blocking code, the operation is initiated,
+  and the next lines of code are executed immediately, without waiting for the previous operation to complete.
+  Non-Blocking methods execute Asynchronously like web API: fetch, promises, callsetTimeout, setInterval, FS.
+  Ex:
+      const fs = require("fs");  //is a core Node.js module, that provides functions to interact with the file system.
+      fs.readFile('file1.txt', 'utf8', (err, data) =>{
+          setTimeout(() =>{
+              if(err){
+                  cconsole.error(err);
+                  return;
+              }
+              console.log("Content:", data);
+          }, 2000)
+      });
+      console.log("This will print before file reading is done.")
+  /*
+  fs.readFile:-
+    This function reads the contents of a file asynchronously.
+    The first argument, 'file.txt', specifies the file name to read.
+    The second argument, 'utf8', specifies the encoding for the file. This ensures the content is read as a string rather than raw bytes.
+  Callback function:-
+    A callback function (err, data) is provided, which will execute once the file reading operation completes (successfully or with an error).
+  */
+------------------------------------------------------------------------------------------------------------------
+3. Asynchronous Callback Function:=
+  Asynchronous operations in JavaScript often use callback functions to handle tasks that take time,
+  such as file reading, making network requests, or database queries. 
+  Example:
+    console.log('Start');
+    setTimeout(() => {
+        console.log('This message is delayed by 2 seconds.');
+    }, 2000);
+    
+    console.log('End');
+  /*
+  setTimeout: is an asynchronous function, that schedules a task to run after a specified delay (2 seconds in this case).
+    It takes two arguments:-
+    A callback function (code to execute after the delay).
+    The delay in milliseconds (2000 milliseconds = 2 seconds).
+  
+  Callback Function:
+    The () => { console.log('This message is delayed by 2 seconds.'); } is the callback function.
+    This function is executed only after the 2-second delay.
+  */
+-----------------------------------------------------------------------------------------------------------------
+4. Asynchronous fetch & promises:-
+  fetch is a built-in function in JavaScript, used to make HTTP requests.
+  Returns a promise, which represents a future response(Get response). It doesn’t block the code; instead, the program continues execution.
+  
+  .then(response => response.json())
+  then Method: Used to handle the promise, returned by fetch.
+  
+  response.json(): Converts the response body from JSON format into a JavaScript object.
+  Example:-
+  console.log('Fetching user data...');
+  
+  fetch('https://jsonplaceholder.typicode.com/users/1') // Fetch user data
+      .then(response => response.json())
+      .then(data => {
+          console.log('User Data:', data); // Process and log user data
+      });
+  
+  console.log('Doing other tasks...');

@@ -2,8 +2,10 @@
   In asynchronous execution, tasks can be initiated and allowed to run in the background, 
   The program does not wait for a task to complete, before starting the next one. Instead, 
   it continues executing the rest of the code, while the task is handled in the background.
-  Asynchronously like web API: fetch, promises, callback, callsetTimeout, setInterval, FS.
-  Ex:
+  Asynchronous executed like web API: callback, fetch, promises, callsetTimeout, setInterval, FS.
+
+  we can write Asynchronous program by, Callback, fetch, promise, async/await.
+  Ex:CallBack
     console.log("Start");
     
     setTimeout(() => {  // Simulating an asynchronous task
@@ -18,7 +20,7 @@
     Task completed
 -----------------------------------------------------------------------------------------------------------------
 2. Non-Blocking/Asynchronouse:-
-  Async Programming ia also know as Non-Blocking, In non-blocking code, the operation is initiated,
+  Async Programming is also know as Non-Blocking, In non-blocking code, the operation is initiated,
   and the next lines of code are executed immediately, without waiting for the previous operation to complete.
   Non-Blocking methods execute Asynchronously like web API: fetch, promises, callsetTimeout, setInterval, FS.
   Ex:
@@ -63,7 +65,7 @@
     This function is executed only after the 2-second delay.
   */
 -----------------------------------------------------------------------------------------------------------------
-4. Asynchronous fetch & promises:-
+4. Asynchronous using both fetch & promises:-
   fetch is a built-in function in JavaScript, used to make HTTP requests.
   Returns a promise, which represents a future response(Get response). It doesn’t block the code; instead, the program continues execution.
   

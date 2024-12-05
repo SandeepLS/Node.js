@@ -1,0 +1,72 @@
+Asynchronous Programing Promises:-
+Promises is a modern way to handle tasks that take time, such as fetching data from an API, 
+reading files, or performing database operations. 
+
+A promise represents a value that may be:
+  Pending: The operation hasn't completed yet.
+  Fulfilled: The operation was successful, and a value is available.
+  Rejected: The operation failed, and an error is available.
+
+A Promise is an object, that will produce a single value some time in the future. 
+If the promise is successful, it will produce a resolved value, 
+but if the promise is unsuccessflu/something goes wrong, then it will produce a reason why the promise failed.
+
+Example 1:- using .then()
+  const myPromise = new Promise((resolve, reject) => {
+    const sucess = true;  // Simulate success or failure
+  
+    setTimeout(() => {
+      if (sucess) {
+        resolve("Operation sucessfully");
+      } else {
+        reject("Operation Failled..!");
+      }
+    }, 2000);  // Simulates a 2-second delay
+  });
+  //The promise created, To access the result of the promise, you need to use .then() or async/await.
+  
+  myPromise
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log("Operation Completed!");
+    });
+  console.log("Promise created, waiting for result...");
+  
+  O/P:- 
+  Promise created, waiting for result...
+  Operation sucessfully
+  Operation Completed!
+
+Example 2:- using async/await
+  const myPromise = new Promise((resolve, reject) => {
+      const success = true;
+  
+      setTimeout(() => {
+          if (success) {
+              resolve('Operation successful');
+          } else {
+              reject('Operation Failed..!');
+          }
+      }, 2000);
+  });
+  
+  async function handlePromise() {
+      console.log('Waiting for the promise to resolve...');
+      try {
+          const result = await myPromise;
+          console.log(result); // Logs: 'Operation successful' after 2 seconds
+      } catch (error) {
+          console.error(error); // Logs: 'Operation Failed..!' if rejected
+      }
+  }
+  
+  handlePromise();
+  
+  O/P:-
+  Waiting for the promise to resolve...
+  Operation successful

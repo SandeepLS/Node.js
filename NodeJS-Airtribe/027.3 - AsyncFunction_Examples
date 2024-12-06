@@ -1,0 +1,127 @@
+Example 1:-
+    //async
+    const main = async() =>{
+        const asyncFunction = (cb) =>{
+            setTimeout(() =>{
+                console.log("Hello");
+                cb();
+            })
+        }
+    
+        console.log("Start");
+        asyncFunction(() =>{
+            console.log("end")
+        });
+        console.log("Async function is starting...")
+    }
+    main();
+    O/P:-
+    Start
+    Async function is starting...
+    Hello
+    end
+
+Example 2:-
+  const main = async() =>{
+      const asyncFunction1 = (cb) =>{
+          setTimeout(() =>{
+              console.log("Async Function 1");
+              cb();
+          })
+      }
+      const asyncFunction2 = (cb) =>{
+          setTimeout(() =>{
+              console.log("Async Function 2");
+              cb();
+          })
+      }
+      const asyncFunction3 = (cb) =>{
+          setTimeout(() =>{
+              console.log("Async Function 3");
+              cb();
+          })
+      }
+  
+      console.log("Start");
+      asyncFunction1(() =>{  //callBack hell
+          asyncFunction2(() =>{
+              asyncFunction3(() =>{
+                  console.log("All done");
+              })
+          })
+      })
+      console.log("Async function is starting...")
+  }
+  main();
+  O/P:-
+  Start
+  Async function is starting...
+  Async Function 1
+  Async Function 2
+  Async Function 3
+  All done
+
+Example 3:- The above example is callBack, Now how to convert into promises:-
+    const main = async() =>{
+        const asyncFunction1 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async Function 1");
+                    resolve();
+                }, 2000);
+            })
+        }
+        const asyncFunction2 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async Function 2");
+                    resolve();
+                }, 1000);
+            })
+        }
+        const asyncFunction3 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async Function 3");
+                    resolve();
+                }, 1000);
+            })
+        }
+    
+        console.log("Start");
+        // asyncFunction1().then(() =>{
+        //     asyncFunction2().then(() =>{
+        //         asyncFunction3().then(() =>{  //Not redable
+        //             console.log("Done")
+        //         }) 
+        //     })
+        // });
+    
+        asyncFunction1()    //Redable & also called promises chain
+        .then(asyncFunction2)
+        .then(asyncFunction3)
+        .then(() =>{
+            console.log("ALL Done")
+        })
+       
+    }
+    main();
+    O/P:-  a function does not one to one executed in parallel, Its take slightly more then 16sec.
+    Start
+    Async Function 1
+    Async Function 2
+    Async Function 3
+    ALL Done
+
+Example:- a function one to one executed in parallel, then how & Its take 10sec:-
+    Promise.all([
+            asyncFunction1(),
+            asyncFunction2(),
+            asyncFunction3(),
+        ])
+        .then(() =>{
+            console.log("All Done")
+        })
+
+1:01m:00s completed in module 3 part2
+-----------------------------------------------------------------------------------------------

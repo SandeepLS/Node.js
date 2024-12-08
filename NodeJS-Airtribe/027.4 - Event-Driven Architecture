@@ -1,0 +1,77 @@
+Event-Driven Architecture:-
+is a programming pattern where:
+  1. Events: occur due to some action or condition (e.g., a button click, a file upload, or a server request).
+  2. Handlers (or Listeners): respond to these events and perform specific tasks.
+  
+Think of it like cause and effect:
+  Cause: Something happens (an event is emitted).
+  Effect: A registered function (handler) reacts to that event.
+
+This pattern is commonly used in Node.js backend and frontend because,
+it allows applications to react dynamically to user or system actions.
+
+Real-World Analogy
+Imagine we're at a restaurant:
+  1. we Place an Order (Event)
+  We tell the waiter your order.
+  
+  2. Waiter Writes it Down, our order (Event Listener/Handler)
+  The waiter "listens" for your order and notes it down.
+  
+  3. Waiter Delivers Your Food (Effect)
+  The kitchen prepares your food based on your order, and the waiter serves it.
+
+How It Works in Code
+Example-1: Event Emitter
+  const EventEmitter = require('events'); // Import the EventEmitter class
+  const emitter = new EventEmitter();    // Create an instance of EventEmitter
+  
+  // Register an event listener for the 'greet' event
+  emitter.on('greet', (name) => {
+    console.log(`Hello, ${name}!`);
+  });
+  
+  // Emit (trigger) the 'greet' event
+  emitter.emit('greet', 'Sandeep');  //O/P: Hello, Sandeep!
+
+Explanation:
+  Event Registration:
+    emitter.on('greet', (name) => {...}): This registers a function to handle the greet event.
+  Event Triggering:
+    emitter.emit('greet', 'Sandeep'): This triggers the greet event, passing "Sandeep" as data.
+  Event Handling:
+    When the greet event occurs, the registered function runs and logs the greeting.
+----------------------------------------------------------------------------------------------
+More Practical Example: Server Event
+Let's say you’re building a chat application. Here’s how event-driven architecture can be used:
+Example-2:
+  const EventEmitter = require('events');
+  const chat = new EventEmitter();
+  
+  // Register an event listener for new messages
+  chat.on('message', (sender, text) => {
+    console.log(`${sender}: ${text}`);
+  });
+  
+  // Emit (trigger) the 'message' event
+  chat.emit('message', 'Alice', 'Hello, everyone!');
+  chat.emit('message', 'Bob', 'Hi Alice!');
+  O/P:-
+  Alice: Hello, everyone!
+  Bob: Hi Alice!
+
+Explanation:
+  Event Listener:
+  chat.on('message', (sender, text) => {...}) listens for message events.
+  
+  Event Emission:
+  chat.emit('message', 'Alice', 'Hello, everyone!') triggers the message event, passing the sender and message as arguments.
+  
+  Response:
+  Each message event is handled by the listener, which logs the message.
+----------------------------------------------------------------------------------------------
+Key Components of Event-Driven Systems
+  1. Event Source: Where the event originates (e.g., button click, server request).
+  2. Event Listener/Handler: Function(s) that react to the event.
+  3. Event Emitter: Component responsible for triggering the event.
+  

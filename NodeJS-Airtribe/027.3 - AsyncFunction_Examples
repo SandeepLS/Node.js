@@ -125,3 +125,49 @@ Example:- a function one to one executed in parallel, then how & Its take 10sec:
 
 1:01m:00s completed in module 3 part2
 -----------------------------------------------------------------------------------------------
+async&await: 1:23:00
+Example-1:
+    const main = async() =>{
+        const asyncFunction1 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async function 1")
+                    resolve()
+                }, 2000)
+            })
+        }
+        const asyncFunction2 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async Function 2");
+                    resolve();
+                }, 1000)
+            })
+        }
+    
+        const asyncFunction3 = () =>{
+            return new Promise((resolve, reject) =>{
+                setTimeout(() =>{
+                    console.log("Async Function 3");
+                    resolve();
+                }, 2000)
+            })
+        }
+    
+        const res1 = await asyncFunction1();
+        const res2 = await asyncFunction2();
+        const res3 = await asyncFunction3();    
+                    //OR
+        //sometimes our code will become slower, because of we are over-use of async/await.
+        //promises.all: 1, 2 & 3 function are not dependet on eachother, we have to run them n parallel.
+        const res = await Promise.all([
+            asyncFunction1(),
+            asyncFunction2(),
+            asyncFunction3(),
+        ])
+    
+        console.log("All Done");
+    }
+    main();
+------------------------------
+promises.all: 1, 2 & 3 function are not dependet on eachother, we have to run them n parallel.

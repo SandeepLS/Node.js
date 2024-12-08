@@ -1,0 +1,57 @@
+Imagine a food delivery app backend built with Node.js:
+
+1. Asynchronous: 
+   The server fetches data (like available restaurants) from a database or API without blocking the user interface.
+   
+2. Event-Driven: 
+   Events such as "user logged in" or "order placed" trigger specific actions like sending a confirmation email or notifying the restaurant.
+   
+3. Inversion of Control: 
+   The Express framework controls how requests and responses flow, while you define only the business logic (e.g., routes and middleware).
+
+Example:-
+    const express = require('express');
+    const app = express();
+    
+    app.use(express.json());
+    
+    // Asynchronous Database Mock
+    const fetchRestaurants = async () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(['Pizza Place', 'Sushi Spot']);
+        }, 1000);
+      });
+    };
+    
+    // Event Emitter
+    const EventEmitter = require('events');
+    const eventEmitter = new EventEmitter();
+    
+    eventEmitter.on('orderPlaced', (order) => {
+      console.log(`Order received for ${order.item}. Notifying the restaurant...`);
+    });
+    
+    // Route: Get Restaurants (Asynchronous)
+    app.get('/restaurants', async (req, res) => {
+      const restaurants = await fetchRestaurants();
+      res.send(restaurants);
+    });
+    
+    // Route: Place Order (Event-Driven)
+    app.post('/order', (req, res) => {
+      const order = req.body;
+      eventEmitter.emit('orderPlaced', order); // Trigger an event
+      res.send('Order placed successfully!');
+    });
+    
+    // IoC: The framework listens on port 3000
+    app.listen(3000, () => {
+      console.log('Server running on port 3000...');
+    });
+
+
+Key Takeaways
+> Asynchronous: Improves efficiency by handling tasks independently.
+> Event-Driven: Reacts to signals or messages, enabling modularity and scalability.
+> IoC: Shifts control of the application flow to a framework, focusing the developer on business logic rather than infrastructure.

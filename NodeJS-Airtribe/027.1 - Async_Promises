@@ -90,7 +90,7 @@
   O/P: All Promises Resolved: [ 'Promise 1', 'Promise 2', 'Promise 3' ]
 
   B. Promise.race:
-  Returns the result of the first promise that resolves or rejects.
+  It Returns, the result of the first promise, that resolves or rejects.
   Ex:
   Promise.race([promise1, promise2, promise3])
       .then(result => {

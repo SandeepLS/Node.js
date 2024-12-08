@@ -1,0 +1,130 @@
+Inversion of Control(IoC):-
+Inversion of Control is a design principle, where the control of a program's,
+flow is delegated to a framework or external/outer component.
+
+The framework calls your code, Your code typically provides Handlers, Callbacks, or Configuration.
+IoC is fundamental in frameworks like Spring (Java), Angular (JavaScript), and Express (Node.js).
+
+Example-1:-
+  const express = require('express');
+  const app = express();
+  
+  // Developer provides the route handler (callback)
+  app.get('/', (req, res) => {
+    res.send('Hello, World!');
+  });
+  
+  // The Express framework calls this handler when an HTTP GET request is made
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+  });
+  
+  Here:
+  > You only define what to do (route handlers).
+  > The framework (Express) manages when and how your code runs (e.g., on an HTTP request).
+--------------------------------------------------------------------------------------------------
+Traditional Programming:
+You write the logic and decide how the program flows (e.g., calling functions in a specific order).
+IoC:
+The framework controls the program's flow. You only provide specific parts (e.g., route handlers, callbacks),
+and the framework takes care of, when and how to call them.
+
+Breaking It Down
+  1. Framework-Controlled Execution: 
+     > In IoC, you define what happens (your code logic), but the framework decides when and how to execute it.
+  
+  2. Your Role: As a developer, you only need to:
+     > Write the logic for specific tasks (handlers).
+     > Configure how the framework should interact with your code.
+  
+  3. Framework’s Role: The framework:
+     > Manages the application’s lifecycle.
+     > Handles external events (like HTTP requests, user actions).
+     > Decides which piece of your code to call when something happens.
+
+Simplified Real-World Analogy
+Imagine you are a chef in a restaurant:
+
+1. Without IoC (Traditional):
+   > You have to cook, manage orders, and call waiters to deliver food.
+   > You control everything.
+   
+2. With IoC (Framework):
+   > The restaurant manager (framework) handles the flow:
+     * Waiters (framework) take orders from customers.
+     * The manager tells you (developer) what food to cook and when.
+   > You only focus on cooking (your task), and the system handles the rest.
+
+Example-1: Without IoC
+You explicitly manage the flow:
+  function sayHello() {
+    console.log("Hello, World!");
+  }
+  
+  function main() {
+    sayHello(); // You manually call the function
+  }
+  
+  main(); // Developer controls the flow by calling `main`
+
+Example-2: With IoC
+In Express.js (a Node.js framework), IoC means you provide handlers for specific tasks, and the framework decides when to call them.
+  const express = require('express'); // Import the framework
+  const app = express(); // Create an Express application
+  
+  // Define a route handler (your task)
+  app.get('/', (req, res) => {
+    res.send("Hello, World!"); // What happens when the route is accessed
+  });
+  
+  // Start the server (the framework handles the flow)
+  app.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
+  });
+
+What’s Happening Here:
+
+1. Framework-Controlled Execution:
+   When a user sends an HTTP GET request to /, the framework (Express) detects it and calls your route handler.
+
+2. Your Role:
+   Define what to do when the route / is accessed (your logic: res.send("Hello, World!")).
+
+3. Framework’s Role:
+    Handle all other details:
+    Listening for HTTP requests.
+    Matching the URL to your route.
+    Managing request and response objects.
+-------------------------------------------------------------------------------------
+A Deeper Example
+Let’s imagine you’re building an API with multiple endpoints.
+Ex:
+  const express = require('express');
+  const app = express();
+  
+  // Route handlers provided by you
+  app.get('/users', (req, res) => {
+    res.send("Fetching all users...");
+  });
+  
+  app.post('/users', (req, res) => {
+    res.send("Adding a new user...");
+  });
+  
+  // Framework manages the lifecycle and execution
+  app.listen(3000, () => {
+    console.log("Server running on port 3000");
+  });
+
+How IoC Works Here:
+1. You provide the logic (app.get, app.post).
+2. The framework handles:
+    Listening for requests.
+    Parsing request data.
+    Matching the URL to the correct route.
+    Calling your handler function.
+--------------------------------------------------------------------------------------
+Key Takeaways
+> In IoC, the framework controls the flow of your application.
+> You focus on writing what happens (your logic).
+> The framework decides when and how to execute your code.

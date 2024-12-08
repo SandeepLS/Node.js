@@ -1,6 +1,8 @@
 1. Fetching Data Using async/await, Promises:-
     async Keyword: It Marks, a function as asynchronous.
     await Keyword: Pauses the execution of the function, until the promise resolves or rejects.
+
+    Note: we can not wright await keyword, outside of in async function.
       
     Example:-
     // Simulate a function that fetches user data
@@ -64,3 +66,4 @@
     Fetching user data...
     User Data: { id: 1, name: 'Leanne Graham', username: 'Bret', ... }
     Fetch operation complete.
+---------------------------------------------------------------------------------------

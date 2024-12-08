@@ -159,7 +159,9 @@ Example-1:
         const res3 = await asyncFunction3();    
                     //OR
         //sometimes our code will become slower, because of we are over-use of async/await.
-        //promises.all: 1, 2 & 3 function are not dependet on eachother, we have to run them n parallel.
+        //promises.all: 1, 2 & 3 function are not dependet on eachother, we have to run them in parallel.
+        //promise.all settel is going to, wait for every execution get over.
+        //if i have one error in promise.all , we do not get output.
         const res = await Promise.all([
             asyncFunction1(),
             asyncFunction2(),
@@ -170,4 +172,4 @@ Example-1:
     }
     main();
 ------------------------------
-promises.all: 1, 2 & 3 function are not dependet on eachother, we have to run them n parallel.
+

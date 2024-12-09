@@ -1,1 +1,23 @@
-sandeep
+Authentication, Authorization:-
+
+Authentication:
+  Authentication is the process of verifying a user's identity. 
+  is we want to check, if this particuler user can access the system/Not.  
+
+  It answers the question: "Who are you?"
+  Example: Logging in with a username and password.
+  After successful authentication, the server typically issues a token (e.g., JWT).
+
+Steps in Authentication:
+  > The user sends their credentials (e.g., username and password).
+  > The server verifies the credentials against the database.
+  > If valid, the server responds with a token.
+  > The token is used to, authenticate the user in subsequent requests.
+
+Implementation Example:
+Here’s an example using JWT for token-based authentication.
+Dependencies:
+npm install express bcrypt jsonwebtoken
+
+
+

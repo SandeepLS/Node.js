@@ -49,3 +49,46 @@ Explanation:
 O/P:
     All functions completed: [ 'Result from func1', 'Result from func2', 'Result from func3' ]
     Executing the next line of code...
+----------------------------------------------------------------------------------------------------------------------
+Step-by-Step Execution of Callback Functions:-
+
+1. Original Callback Structure:
+   Each of the callback-based functions (func1, func2, func3) expects a callback as an argument. 
+   When the function completes its asynchronous task (e.g., setTimeout), it calls the callback,
+   passing either an error (null in this case) or the result. Example:
+
+   example:
+   function func1(callback) {
+      setTimeout(() => callback(null, 'Result from func1'), 1000);
+   }
+
+   The callback function here acts as a notifier, which will be invoked when the asynchronous operation completes.
+
+2. Converting to Promise-Based Functions:
+   Using util.promisify, each callback-based function is wrapped in a Promise.
+   Example of how util.promisify works internally:
+
+   example:
+    const func1Async = util.promisify(func1);
+    
+    // Internally, promisify does this:
+    const func1Async = () => {
+        return new Promise((resolve, reject) => {
+            func1((err, result) => {
+                if (err) reject(err); // Handle error
+                else resolve(result); // Handle success
+            });
+        });
+    };
+
+    > util.promisify automatically creates a promise that listens for the callback's invocation.
+    > If the callback is called with an error (e.g., callback(err)), the promise is rejected.
+    > If the callback is called with a result (e.g., callback(null, result)), the promise is resolved.
+
+3. Execution in Parallel:
+   Using Promise.all, all the Promisified functions are executed concurrently:
+
+  example:
+    const results = await Promise.all([func1Async(), func2Async(), func3Async()]);
+  > Each of these functions starts execution simultaneously.
+  >  Promise.all waits until the promise get rsolve or reject.

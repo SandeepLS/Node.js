@@ -1,0 +1,51 @@
+To execute three callback-based functions in parallel, and then execute the next line of code,
+you can use Promise.all in combination with util.promisify,
+to convert the callback-based functions into promise-based ones.
+
+Here's a solution:
+  const util = require('util');
+  
+  // Example callback-based functions
+  function func1(callback) {
+      setTimeout(() => callback(null, 'Result from func1'), 1000);
+  }
+  
+  function func2(callback) {
+      setTimeout(() => callback(null, 'Result from func2'), 500);
+  }
+  
+  function func3(callback) {
+      setTimeout(() => callback(null, 'Result from func3'), 1500);
+  }
+  
+  // Promisify the functions to convert them to promise-based
+  const func1Async = util.promisify(func1);
+  const func2Async = util.promisify(func2);
+  const func3Async = util.promisify(func3);
+  
+  async function executeInParallel() {
+      try {
+          // Execute the functions in parallel using Promise.all
+          const results = await Promise.all([func1Async(), func2Async(), func3Async()]);
+          
+          console.log('All functions completed:', results);
+  
+          // Next line of code to execute after all functions are complete
+          console.log('Executing the next line of code...');
+      } catch (error) {
+          console.error('An error occurred:', error);
+      }
+  }
+  
+  executeInParallel();
+
+Explanation:
+    util.promisify: Converts callback-based functions into Promise-based functions,
+                    enabling the use of await.
+    Promise.all: Executes all promises in parallel and resolves when all promises are fulfilled.
+                 If any promise is rejected, it will short-circuit and throw the error.
+    await: Waits for all promises to resolve, ensuring the next line executes, only after all the tasks are completed.
+
+O/P:
+    All functions completed: [ 'Result from func1', 'Result from func2', 'Result from func3' ]
+    Executing the next line of code...

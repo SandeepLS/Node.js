@@ -2,7 +2,7 @@ Authentication, Authorization:-
 
 Authentication:
   Authentication is the process of verifying a user's identity. 
-  is we want to check, if this particuler user can access the system/Not.  
+  Authentication is we want to check, if this particuler user can access the system/Not.  
 
   It answers the question: "Who are you?"
   Example: Logging in with a username and password.
@@ -16,8 +16,158 @@ Steps in Authentication:
 
 Implementation Example:
 Here’s an example using JWT for token-based authentication.
-Dependencies:
-npm install express bcrypt jsonwebtoken
+Dependencies: npm install express bcrypt jsonwebtoken
+example:-
+    require("dotenv").config();
+    const express = require('express');
+    const bcrypt = require('bcrypt');
+    const jwt = require('jsonwebtoken')
+    const app = express();
+    app.use(express.json());
+    
+    const PORT = process.env.PORT;
+    
+    const users = [];   // A simple in-memory storage
+    
+    const SECRET_KEY = 'your_secret_key';
+    
+    app.get('/', (req, res) =>{
+        res.send("Hello Sandeep")
+    })
+    
+    app.get('/users', (req, res) =>{
+        res.send(users);
+    })
+    
+    // User registration
+    app.post('/register', async (req, res) => {
+        const { username, password } = req.body;
+      
+        // Hash the password before storing
+        const hashedPassword = await bcrypt.hash(password, 10);
+        users.push({ username, password: hashedPassword });
+      
+        res.status(201).send('User registered successfully');
+    });
+    
+    // User login
+    app.post('/login', async (req, res) => {
+        const { username, password } = req.body;
+      
+        // Find the user
+        const user = users.find((u) => u.username === username);
+        if (!user) return res.status(404).send('User not found');
+      
+        // Validate password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(401).send('Invalid credentials');
+      
+        // Generate JWT token
+        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+        res.json({ token });
+    });
+    
+    // Protected route
+    app.get('/profile', (req, res) => {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).send('Token missing');
+      
+        try {
+          const user = jwt.verify(token, SECRET_KEY);
+          res.send(`Hello, ${user.username}`);
+        } catch {
+          res.status(401).send('Invalid token');
+        }
+    });
+    
+    app.listen(PORT, () =>{
+        console.log(`Server is up/running on ${PORT}`);
+    });
 
+Key Points:
+  > bcrypt: Hashes passwords securely.
+  > jsonwebtoken (JWT): Issues tokens to authenticated users.
+  > Protected Routes: Ensure only authenticated users can access them.
+-------------------------------------------------------------------------------------
+Protected route:-
+In the context of authentication, a protected route is a route, that can only be accessed by authenticated users. 
+This ensures that sensitive data or functionality, is not exposed to unauthenticated users.
+> A protected route requires the user to provide a valid token to access it.
+> Tokens are issued during login and are sent with subsequent requests to verify the user’s identity.
 
+Why Use Protected Routes?
+Protected routes ensure:
+  > Only authenticated users can access sensitive data or functionality.
+  > Data security and privacy are maintained.
 
+Step-by-Step Explanation:-
+Step 1: Extract the Token from the Request
+  const token = req.headers.authorization?.split(' ')[1];
+  > Headers: The Authorization header is used to send the token from the client to the server.
+  > Structure of Authorization Header: Authorization: Bearer <token>
+    Here, Bearer is a keyword followed by the actual token.
+  The code:
+    > Checks if the Authorization header exists using optional chaining (?.).
+    > Splits the header value by a space (split(' ')) to extract the token (the second part).
+
+Step 2: Check if the Token Is Missing
+  if (!token) return res.status(401).send('Token missing');
+  If no token is provided:
+    > The server responds with a 401 Unauthorized status.
+    > The message "Token missing" is sent back to the client.
+    
+Step 3: Verify the Token
+  const user = jwt.verify(token, SECRET_KEY);
+  Token Verification:
+    > The jwt.verify() function checks the token’s validity using the SECRET_KEY.
+    > If the token is valid, it decodes the token and retrieves the user’s information (e.g., username).
+
+Step 5: Respond to the Client
+  res.send(`Hello, ${user.username}`);
+  > If the token is valid, the server responds with a success message containing the user’s information.
+----------------------------------------------------------------------------------------------------------------
+Example Workflow
+1. Login:
+   The user logs in and receives a JWT token.
+   Example token: yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZS
+
+2. Client Sends a Request:
+   The client sends a GET request to /profile, including the token in the Authorization header.
+   GET /profile
+   Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+3. Server Validates the Token:
+   The server extracts the token and validates it.
+   If valid, it decodes the token and retrieves the user’s information.
+
+4. Server Responds:
+   If the token is valid:
+    > The server responds with a personalized message (e.g., Hello, JohnDoe).
+   If invalid or missing:
+    > The server responds with an appropriate error (e.g., "Invalid token").
+
+Improving the Protected Route
+To avoid duplicating token validation logic across routes, use middleware:
+Middleware Example:
+    function authenticateToken(req, res, next) {
+      const token = req.headers.authorization?.split(' ')[1];
+      if (!token) return res.status(401).send('Token missing');
+    
+      try {
+        req.user = jwt.verify(token, SECRET_KEY); // Attach user info to req
+        next(); // Proceed to the next middleware or route handler
+      } catch {
+        res.status(401).send('Invalid token');
+      }
+  }
+  
+  // Use the middleware for the profile route
+  app.get('/profile', authenticateToken, (req, res) => {
+    res.send(`Hello, ${req.user.username}`);
+  });
+
+Key Points
+> A protected route ensures only authenticated users with valid tokens can access it.
+> The token is typically sent in the Authorization header.
+> Use middleware to simplify token validation across multiple routes.
+------------------------------------------------------------------------------------------------------------

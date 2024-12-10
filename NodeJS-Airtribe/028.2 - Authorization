@@ -1,0 +1,14 @@
+jsonwebtoken is a library used to verify and decode JWT tokens.
+SECRET_KEY is the secret used to sign and verify tokens, ensuring their authenticity.
+
+Authorization:-
+Authorization determines what actions or resources, a user can access.
+Example: Admin users can delete other users, while regular users cannot.
+
+Types of Authorization:
+  1. Role-Based Access Control (RBAC):
+     > Access depends on the user’s role (e.g., admin, user).
+  2. Resource-Based Access Control (RBAC):
+     > Access depends on the resource being accessed.
+
+

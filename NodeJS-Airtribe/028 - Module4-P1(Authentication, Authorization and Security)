@@ -89,7 +89,7 @@ Key Points:
   > jsonwebtoken (JWT): Issues tokens to authenticated users.
   > Protected Routes: Ensure only authenticated users can access them.
 -------------------------------------------------------------------------------------
-Protected route:-
+Protected route/Middleware:-
 In the context of authentication, a protected route is a route, that can only be accessed by authenticated users. 
 This ensures that sensitive data or functionality, is not exposed to unauthenticated users.
 > A protected route requires the user to provide a valid token to access it.

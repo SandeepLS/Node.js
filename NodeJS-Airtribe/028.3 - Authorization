@@ -1,6 +1,6 @@
 jsonwebtoken is a library used to verify and decode JWT tokens.
 SECRET_KEY is the secret used to sign and verify tokens, ensuring their authenticity.
-
+ 
 Authorization:-
 Authorization determines what actions or resources, a user can access.
 Example: Admin users can delete other users, while regular users cannot.

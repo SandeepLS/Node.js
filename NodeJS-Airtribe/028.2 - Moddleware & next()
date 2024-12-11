@@ -1,0 +1,58 @@
+//Middleware for token validation.
+  const jwt = require("jsonwebtoken");
+  const { SECRET_KEY } = require("../config/config");
+  
+  const authenticate = (req, res, next) => {
+    const token = req.headers.authorization?.split(" ")[1];  //step-3
+    if (!token) return res.status(401).send("Token missing");
+  
+    try {  //step-4
+      const user = jwt.verify(token, SECRET_KEY);
+      req.user = user; // Attach user info to request
+      next();
+    } catch {
+      res.status(401).send("Invalid token");
+    }
+  };
+  
+  module.exports = { authenticate };
+----------------------------------------------------------------------------------------------------------------
+Step 1:-
+  const jwt = require("jsonwebtoken");
+  const { SECRET_KEY } = require("../config/config");
+  > jsonwebtoken:- is a library, used to verify and decode JWT tokens.
+  > SECRET_KEY:- is the secret used to sign and verify tokens, ensuring their authenticity.
+
+Step 2:- Define the Middleware Function
+  const authenticate = (req, res, next) => { ... }
+  > This is a middleware function, designed to check whether a request contains a valid JWT token/Not.
+  > Middleware functions are functions, that execute before the request reaches the final route handler.
+
+Step 3:- Extract Token from Authorization Header
+  > req.headers.authorization: This retrieves the Authorization header from the incoming HTTP request.
+    ex: Authorization: Bearer <JWT_TOKEN>
+  > .split(" ")[1]: Extracts the token part after the "Bearer" keyword. If the header is Bearer abc123, this will extract abc123.
+  > If the token is missing, a 401 Unauthorized response is sent, stopping further processing.
+
+step 4:- Verify the Token
+  jwt.verify(token, SECRET_KEY);
+  > Validates the token using the SECRET_KEY. If the token is valid, it decodes the payload (e.g., user information) and returns it.
+  
+  req.user = user:
+  > Attaches the decoded user information to the req object, so it can be accessed in later middleware or route handlers.
+  
+  next():
+  > It Passes control, to the next middleware or route handler in the request-response cycle.
+
+------------------------------------------------------------------------------------------------------------------
+What is next?
+  > next is a callback function, provided by Express.js in middleware.
+  > It tells/signals that the current middleware has finished its task, and the next middleware or route handler should take over.
+
+next() will be use for:-
+  1. Chaining Middlewares
+     > In Express, you can have multiple middleware functions in a chain.
+  
+  2. Request-Response Lifecycle:
+     > If next() is not called, the request will not proceed to the next middleware or route handler, effectively stopping the chain.
+     

@@ -1,8 +1,5 @@
-jsonwebtoken is a library used to verify and decode JWT tokens.
-SECRET_KEY is the secret used to sign and verify tokens, ensuring their authenticity.
- 
 Authorization:-
-Authorization determines what actions or resources, a user can access.
+Authorization determines, what actions or resources, a user can access.
 Example: Admin users can delete other users, while regular users cannot.
 
 Types of Authorization:
@@ -11,4 +8,70 @@ Types of Authorization:
   2. Resource-Based Access Control (RBAC):
      > Access depends on the resource being accessed.
 
+Relationship Between Authentication and Authorization
+> Authentication ensures that a user is who they claim to be (e.g., verifying their JWT token).
+> Authorization ensures that, an authenticated user is allowed to perform, a specific actions based on their role or permissions.
+---------------------------------------------------------------------------------------
+Implementation Example:
+Adding role-based authorization to the above example:
 
+Define the permissions for each role:
+const roles = {
+  admin: ['view_users', 'delete_users'], // Admins can view and delete users
+  user: ['view_users']                   // Regular users can only view users
+};
+
+// Create an Authorization Middleware:-
+// Add middleware to check a user's role and permissions based on their token:
+function authorize(role, action) {
+  return (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).send('Token missing');
+
+    try {
+      const user = jwt.verify(token, SECRET_KEY);
+      req.user = user; // Attach the user to the request object
+
+      // Check if the role has the required action
+      if (!roles[role].includes(action)) {
+        return res.status(403).send('Forbidden'); // Access denied
+      }
+
+      next(); // User is authorized
+    } catch {
+      res.status(401).send('Invalid token'); // Invalid token
+    }
+  };
+}
+
+// Protect Routes with Authorization
+// Use the authorize middleware to secure your routes:
+
+// Admin route
+app.get('/admin', authorize('admin', 'delete_users'), (req, res) => {
+  res.send('Welcome, Admin!');
+});
+
+// General user route
+app.get('/users', authorize('user', 'view_users'), (req, res) => {
+  res.send('Viewing users...');
+});
+
+Summary:-
+> Authentication confirms "who you are" (using JWT).
+> Authorization decides "what you can do" (based on roles and permissions).
+> By combining both, your application ensures secure and role-based access to resources.
+
+---------------------------------------------------------------------------------------
+Conclusion
+> Authentication verifies who the user is (e.g., login system).
+> Authorization determines what the user can do (e.g., access control).
+> Frameworks like Express.js simplify implementing these features, while tools like,
+  JWT and bcrypt provide secure mechanisms for user verification and role management.
+
+----------------------------------------------------------------------------------------
+Feature	               Authentication	                       Authorization
+Definition	     Confirms the user’s identity.	    Determines what actions/resources the user has access to.
+Answers	        "Who are you?"	                   "What are you allowed to do?"
+When it Happens	First (e.g., Login).	             After Authentication is successful.
+Example	        Login using username/password.	   Only admins can delete other users.

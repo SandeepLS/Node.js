@@ -1,0 +1,127 @@
+> Authentication confirms "who you are" (using JWT).
+> Authorization decides "what you can do" (based on roles and permissions).
+> By combining both, your application ensures secure and role-based access to resources.
+
+Example: airtribe/NodeJS2/4_Module4-p1:- PC
+require("dotenv").config();
+const express = require('express');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+const app = express();
+app.use(express.json());
+
+const PORT = process.env.PORT;
+
+const users = [];   // A simple in-memory storage
+
+const roles = {
+    admin: ['view_users', 'delete_users'], // Admins can view and delete users
+    user: ['view_users'],                 // Regular users can only view users
+};
+
+const SECRET_KEY = process.env.SECRET_KEY;
+
+app.get('/', (req, res) =>{
+    res.send("Hello Sandeep")
+})
+
+app.get('/users', (req, res) =>{
+    res.send(users);
+})
+
+// User registration
+app.post('/register', async (req, res) => {
+    const { username, password, role } = req.body;
+  
+    // Hash the password before storing
+    const hashedPassword = await bcrypt.hash(password, 10);
+    users.push({ username, password: hashedPassword, role });
+  
+    res.status(201).send('User registered successfully');
+});
+
+// User login
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+  
+    // Find the user
+    const user = users.find((u) => u.username === username);
+    if (!user) return res.status(404).send('User not found');
+  
+    // Validate password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(401).send('Invalid credentials');
+  
+    // Generate JWT token
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    res.json({ token });
+});
+
+// Protected route
+// app.get('/profile', (req, res) => {
+//     const token = req.headers.authorization?.split(' ')[1];
+//     if (!token) return res.status(401).send('Token missing');
+  
+//     try {
+//       const user = jwt.verify(token, SECRET_KEY);
+//       res.send(`Hello, ${user.username}`);
+//     } catch {
+//       res.status(401).send('Invalid token');
+//     }
+// });
+
+function authorize(role, action) {
+    return (req, res, next) => {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).send('Token missing');
+
+        try {
+            const user = jwt.verify(token, SECRET_KEY);
+            req.user = user; // Attach the user to the request object
+
+            // Check if the role has the required action
+            if (!roles[role]?.includes(action)) {
+                return res.status(403).send('Forbidden'); // Access denied
+            }
+
+            next(); // User is authorized
+        } catch {
+            res.status(401).send('Invalid token'); // Invalid token
+        }
+    };
+}
+/**
+ * http://localhost:3000/register
+ * { 
+        "username": "admin",
+        "password": "adminpass",
+        "role": "admin"
+   }
+
+   http://localhost:3000/login
+   {
+    "username": "admin",
+    "password": "adminpass"
+   }
+    Response:- "token": "your_generated_jwt_token"
+
+    GET http://localhost:3000/admin
+    Headers: Authorization: Bearer  your_generated_jwt_token
+ */
+
+
+// Admin-only route
+app.get('/admin', authorize('admin', 'delete_users'), (req, res) => {
+    res.send('Welcome, Admin! You can delete users.');
+});
+
+// User route
+app.get('/users', authorize('user', 'view_users'), (req, res) => {
+    res.send('Viewing users...');
+});
+
+
+app.listen(PORT, () =>{
+    console.log(`Server is up/running on ${PORT}`);
+});
+

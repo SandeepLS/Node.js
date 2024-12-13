@@ -1,0 +1,24 @@
+Authentication:-
+
+Authorization:-
+
+MongoDB:-
+  npm i mongoose : mongoose is have mongoDB library. This library eventually talk to my database.
+  .env :- MONGO_URL=
+  const mongoose = require('mongoose');
+  mongoose.connect(process.env.MONGO_URL, {}).then(() =>{
+  //This particuler .then function will be call, when the connection is successfully established.
+  })
+
+  check nodejs version:-
+    node -v
+    nvm list
+    nvm use [versionNum]
+    npm install
+    npm run dev
+
+models:-
+models/course.js: this particuler file where am going to define model,
+                  The course model which i was going to store in mongoose database.
+                  all DB defination logic & how do we go and talking database.
+                  

@@ -3,7 +3,7 @@ Authentication:-
 
 Authorization:-
 
-MongoDB:-
+MongoDB:- mongoosejs.com/docs/ OR mongoDB
   npm i mongoose : mongoose is have mongoDB library. This library eventually talk to my database.
   .env :- MONGO_URL=
   const mongoose = require('mongoose');
@@ -22,4 +22,13 @@ models:-1:00:00m
 models/course.js: this particuler file where am going to define model,
                   The course model which i was going to store in mongoose database.
                   all DB defination logic & how do we go and talking database.
+
                   
+const getAllCourses = async(req, res) => {
+  const temp = Course.find();
+  console.log({temp}) //we get mongo query & it is also promise internally.
+  const courses = await temp;
+  res.send(courses);
+};
+
+-> upto 1:35:00m mongodb.

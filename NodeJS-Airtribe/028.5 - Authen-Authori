@@ -52,4 +52,31 @@ const getAllCourses = async(req, res) => {
    const dbUser = await User.create(body); // Wait for the promise to resolve
    res.send(dbUser); // Send the actual created user data
 
+----------------------------------------------------------------------------------------------------------
+Module-4: Part-2:-
+->Explained about hashing 11:00 - 24:00s
+->routes/user.js
+register/:-
+Bcrypt 24:00s OR bcrypt npm package(search in google)
+npm i bcrypt
+
+->routes/user.js
+login/:-
+sudo code logic:-
+> First i need to find user from database.
+> Then i need to find hashPassword
+> Then i need to create hash of plain text password.
+
+JWT
+Encode: tocken
+Decode: Header, Payload, Signature
+npm i jsonwebtoken
+
+->routes/course.js:-
+validateJWT
+
+->recap:- 1:30:20s
+
+->encription :- 1:51:00s
+
 

@@ -1,7 +1,15 @@
 Module-4: Part-1:-
-Authentication:-
+
+Authentication:-(Here checking the validity)
+we want to check, if the particuler user can access/get this system/not.
+Ex: Let's say we go to movie theater, There are 3/more movies playing over, And 
+then their is a guard is sitting over, outsaide of the theater, he just checking a ticket.
+If this ticket are valid or not, They really don't care, Which movie u are going to,
+OR which place you will be tacking Balcani/firstclass  they don't care about that, Hey you are eligible/Not to enter this theater.
 
 Authorization:-
+Can you really access this resource/not.
+Ex:Once we are in the movie theater, somebody can check, Hey you are eligible to access this balcani/firtClass/bottom seat/not.
 
 MongoDB:- mongoosejs.com/docs/ OR mongoDB
   npm i mongoose : mongoose is have mongoDB library. This library eventually talk to my database.
@@ -23,7 +31,7 @@ models/course.js: this particuler file where am going to define model,
                   The course model which i was going to store in mongoose database.
                   all DB defination logic & how do we go and talking database.
 
-                  
+routes/course.js               
 const getAllCourses = async(req, res) => {
   const temp = Course.find();
   console.log({temp}) //we get mongo query & it is also promise internally.
@@ -32,3 +40,16 @@ const getAllCourses = async(req, res) => {
 };
 
 -> upto 1:35:00m mongodb.
+
+->models/user.js
+->routes/user.js
+->async/await
+1. Behavior Without await:
+   const dbUser = User.create(body); // Returns a promise
+   res.send(dbUser); // Sends the promise, not the resolved data
+
+2. With async/await:
+   const dbUser = await User.create(body); // Wait for the promise to resolve
+   res.send(dbUser); // Send the actual created user data
+
+

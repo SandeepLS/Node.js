@@ -1,5 +1,5 @@
 API(Application Programming Interface):-
-is a set of rules & definitions, That allows different software applications to communicate with each other.
+is a set of rules & definitions, That allows different software applications to communicate/interact with each other.
 
 Purpose of API, It enable integration & interaction between different systems,
 macking it possible to share data & functionality.

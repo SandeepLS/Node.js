@@ -1,0 +1,8 @@
+1) What is Node.js:-
+   is a JavaScript Runtime environment, which uses V8 javascript engine.
+   Used for executing javascript code outside the browser,- 
+   commonly used to build scalable backend application.
+
+2) Deff b/w JavaScript & Node.js:-
+   JabaScript is a scripting language, While Node.js is a Runtime environment,-
+   that allows JabaScript to run the server-side.

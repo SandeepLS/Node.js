@@ -1,0 +1,11 @@
+IS Node.js is Single threaded?
+Yes, Node.js is single-threaded, but it utilizes a non-blocking,-
+event-driven architecture to handle multiple operations concurrently/Synchronously/Simultaneously.
+
+How Node.js Handles Tasks:
+1. Single-Threaded Event Loop:
+   The main part of Node.js runs on a single thread, meaning it processes one tasks at a time in a loop (event loop).
+
+2. Concurrency with Callbacks/Promises:
+   Node.js handles concurrent tasks using callbacks, promises, and async/await,
+   allowing multiple tasks to execute asynchronously without waiting for each other to complete.

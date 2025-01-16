@@ -1,0 +1,94 @@
+File System APIs (fs module):-
+It Provides an API to interact with the file system, for tasks such as reading, writing, appending, renaming, and deleting files.
+Examples:-
+1. Asynchronous File Operations
+  a) fs.readFile()
+    Definition: Reads the content of a file asynchronously and provides the result through a callback function.
+    Ex:
+    const fs = require('fs');
+    
+    fs.readFile('example.txt', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+        console.log('File content:', data);
+    });
+
+  b) fs.writeFile()
+    Definition: Writes data to a file asynchronously. If the file does not exist, it creates one.
+    Ex:
+    const fs = require('fs');
+    
+    fs.writeFile('example.txt', 'Hello, world!', (err) => {
+        if (err) {
+            console.error('Error writing file:', err);
+            return;
+        }
+        console.log('File written successfully');
+    });
+
+  c) fs.appendFile()
+  Definition: Appends data to a file asynchronously. If the file does not exist, it creates one.
+  Ex:
+  const fs = require('fs');
+  
+  fs.appendFile('example.txt', '\nAppended text.', (err) => {
+      if (err) {
+          console.error('Error appending file:', err);
+          return;
+      }
+      console.log('File appended successfully');
+  });
+
+2. Synchronous File Operations
+  a) fs.readFileSync()
+    Definition: Reads the content of a file synchronously and returns the result.
+    Ex:
+    const fs = require('fs');
+    
+    try {
+        const data = fs.readFileSync('example.txt', 'utf8');
+        console.log('File content:', data);
+    } catch (err) {
+        console.error('Error reading file:', err);
+    }
+  
+  b) fs.writeFileSync()
+    Definition: Writes data to a file synchronously.
+    Ex:
+    const fs = require('fs');
+    
+    try {
+        fs.writeFileSync('example.txt', 'Hello, world!');
+        console.log('File written successfully');
+    } catch (err) {
+        console.error('Error writing file:', err);
+    }
+
+3. File Rename and Delete
+  a) fs.rename()
+    Definition: Renames a file asynchronously.
+    Ex:
+    const fs = require('fs');
+    
+    fs.rename('example.txt', 'newExample.txt', (err) => {
+        if (err) {
+            console.error('Error renaming file:', err);
+            return;
+        }
+        console.log('File renamed successfully');
+    });
+  
+  b) fs.unlink()
+    Definition: Deletes a file asynchronously.
+    Ex:
+    const fs = require('fs');
+    
+    fs.unlink('newExample.txt', (err) => {
+        if (err) {
+            console.error('Error deleting file:', err);
+            return;
+        }
+        console.log('File deleted successfully');
+    });

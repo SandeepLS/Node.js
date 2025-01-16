@@ -1,0 +1,91 @@
+What kind of API function is supported by Node.js?
+Ans: Node.js supports both Synchronous(blocking) and Asynchonouse(non-blocking) API functions.
+
+1. File System APIs (fs module)
+  Purpose: Interact with the file system.
+  Functions:
+  > fs.readFile(), fs.writeFile(), fs.appendFile() – Asynchronous file operations.
+  > fs.readFileSync(), fs.writeFileSync() – Synchronous file operations.
+  > fs.rename(), fs.unlink() – Rename or delete files.
+
+2. HTTP APIs (http and https modules)
+  Purpose: Handle HTTP/HTTPS server and client functionalities.
+  Functions:
+  > http.createServer() – Create a web server.
+  > http.request(), http.get() – Send HTTP/HTTPS requests.
+  > http.Server – Methods like listen(), setTimeout()
+
+3. Buffer APIs (Buffer class)
+  Purpose: Handle binary data efficiently.
+  Functions:
+  > Buffer.from(), Buffer.alloc() – Create buffers.
+  > buffer.toString(), buffer.write() – Convert and write data.
+  > buffer.slice(), buffer.copy() – Manipulate buffers.
+
+4. Stream APIs (stream module)
+  Purpose: Handle streaming data (e.g., file reading/writing, network communication).
+  Types:
+  > Readable Streams: stream.Readable
+  > Writable Streams: stream.Writable
+  > Duplex Streams: stream.Duplex
+  > Transform Streams: stream.Transform
+
+5. Event Handling APIs (events module)
+  Purpose: Manage asynchronous events.
+  Functions:
+  > EventEmitter – Core class.
+  > Methods: on(), emit(), removeListener().
+
+6. Process APIs (process module)
+  Purpose: Interact with and control the current Node.js process.
+  Functions:
+  > process.env – Access environment variables.
+  > process.argv – Access command-line arguments.
+  > process.exit(), process.on() – Exit or listen to events.
+
+7. Child Processes APIs (child_process module)
+  Purpose: Spawn and control child processes.
+  Functions:
+  > child_process.exec(), child_process.spawn() – Execute commands or spawn processes.
+  > child_process.fork() – Create a new Node.js process.
+
+8. Timers APIs
+  Purpose: Handle delays and intervals.
+  Functions:
+  > setTimeout(), setInterval(), setImmediate() – Schedule tasks.
+
+9. Crypto APIs (crypto module)
+  Purpose: Handle cryptographic functionalities.
+  Functions:
+  > crypto.createHash(), crypto.createCipher(), crypto.createDecipher().
+
+10. OS APIs (os module)
+    Purpose: Fetch operating system-related information.
+    Functions:
+    > os.platform(), os.type() – Retrieve OS details.
+    > os.freemem(), os.totalmem() – Get memory stats.
+    > os.cpus() – Get CPU information.
+
+11. Path APIs (path module)
+    Purpose: Handle file and directory paths.
+    Functions:
+    > path.join(), path.resolve() – Build paths.
+    > path.basename(), path.dirname() – Parse paths.
+
+12. Util APIs (util module)
+    Purpose: Provide utilities for debugging and working with objects.
+    Functions:
+    > util.promisify() – Convert callback-based functions to Promises.
+    > util.format(), util.inspect() – Format or inspect objects.
+
+13. DNS APIs (dns module)
+    Purpose: Perform DNS lookups and queries.
+    Functions:
+    > dns.lookup(), dns.resolve() – Resolve DNS records.
+    > dns.reverse() – Perform reverse DNS lookups.
+
+14. Cluster APIs (cluster module)
+    Purpose: Enable multi-threading by clustering Node.js processes.
+    Functions:
+    > cluster.fork() – Fork worker processes.
+    > cluster.on() – Listen to cluster events.

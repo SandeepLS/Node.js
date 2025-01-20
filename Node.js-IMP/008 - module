@@ -1,0 +1,54 @@
+Module:-
+is a reusable block of code, that can be exported and imported in other files.
+And also that provides specific functionality, Which can be reused accross different parts of an application.
+
+Types of Modules in Node.js:- 
+Core Modules: Built into Node.js, such as fs, http, and path.
+Local Modules: Created by developers for specific functionality.
+Third-party/External Modules: Installed from the npm (Node Package Manager) repository, like express or lodash.
+
+1. Core Module
+   Using the fs Core Module
+  Ex:
+  const fs = require('fs'); // Import the core module
+  
+  fs.writeFile('example.txt', 'Hello, Node.js!', (err) => {
+      if (err) {
+          console.error('Error writing file:', err);
+      } else {
+          console.log('File written successfully');
+      }
+  });
+
+2. Local Module
+   Creating and Using a Local Module.
+  Ex:
+  Create a module file (math.js):
+  // math.js
+  const add = (a, b) => a + b;
+  const subtract = (a, b) => a - b;
+  module.exports = { add, subtract }; // Export functions
+
+  Import and use the module (app.js):
+  // app.js
+  const math = require('./math'); // Import the local module
+  console.log('Addition:', math.add(5, 3)); // Output: Addition: 8
+  console.log('Subtraction:', math.subtract(5, 3)); // Output: Subtraction: 2
+
+3. Third-party Module
+   Using the lodash Module (Third-party)
+  Ex:
+  Install lodash:
+  npm install lodash
+  
+  Use it in your code:
+  const _ = require('lodash'); // Import the third-party module
+  const numbers = [1, 2, 3, 4, 5];
+  const reversed = _.reverse(numbers.slice()); // Reverse a copy of the array
+  console.log('Reversed array:', reversed); // Output: Reversed array: [5, 4, 3, 2, 1]
+
+Key Benefits of Modules:-
+  Reusability: Code can be reused across multiple files.
+  Encapsulation: Keeps functionality organized and reduces complexity.
+  Maintainability: Easier to maintain and debug.
+  Dependency Management: Enables better handling of external libraries.

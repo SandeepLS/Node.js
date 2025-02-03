@@ -1,0 +1,29 @@
+middleware:-
+middleware functions execute between, the request and response cycle,
+This performing task(obligation) like logging, authentication & data processing.
+(It act as intermediaries between the request and response cycle.)
+
+Logging – Capturing request details like method, URL, and time for debugging and monitoring.
+Authentication – Verifying user credentials before processing the request.
+Data Processing – Parsing request bodies, handling file uploads, or modifying request/response objects.
+
+How Middleware Works:
+> When a request is received, it goes through multiple middleware functions, before reaching the final route handler.
+> Each middleware function can modify the request (req) and response (res) objects or pass control to the next middleware using next().
+
+Example:- Here, the middleware logs every request before reaching the route handler.
+const express = require('express');
+const app = express();
+
+// Middleware function
+app.use((req, res, next) => {
+    console.log(`${req.method} request for ${req.url}`);
+    next(); // Pass control to the next middleware
+});
+
+// Route handler
+app.get('/', (req, res) => {
+    res.send('Hello, Middleware!');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));

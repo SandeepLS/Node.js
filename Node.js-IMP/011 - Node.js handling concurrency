@@ -1,0 +1,9 @@
+How Node.js handling concurrency despite being single-threaded ?
+Ans: Node.js handles concurrency through asynchronous, non-blocking operations,
+allowing multiple tasks to run simultaneously within a single thread.
+
+Concurrency: Handling multiple tasks at once, but not necessarily executing them at the same time.
+
+Synchronous = Blocking
+Asynchronous = Non-Blocking
+

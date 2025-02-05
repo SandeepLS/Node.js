@@ -1,0 +1,4 @@
+Event loop:-
+is a mechanism, that process asynchronous tasks in a single thread,
+by continuously checking for and executing callback function.
+

@@ -1,2 +1,50 @@
 What is REPL in Node.js:-
-REPL stands for Read, Evaluate, Print, Loop. It's an interactive  
+REPL stands for Read, Evaluate, Print, Loop. 
+It is a built-in interactive shell in Node.js, that allows developers to execute JavaScript code in real time.
+
+How REPL Works
+The REPL follows a four-step process:
+  Read → Takes input from the user.
+  Eval → Evaluates the JavaScript expression.
+  Print → Outputs the result.
+  Loop → Waits for the next input (repeats the cycle).
+
+How to Start REPL in Node.js:-
+To open the REPL, simply run the following command in your terminal:
+node
+You'll see a prompt (>) where you can type JavaScript code and execute it.
+
+Basic REPL Commands
+1. Execute JavaScript Expressions:
+  > 5 + 5
+  10
+  > Math.max(10, 20, 30)
+  30
+
+2. Variable Declaration
+  > let x = 10;
+  undefined
+  > x * 2
+  20
+
+3. Multiline Code Execution
+  Use .editor mode to write multi-line code:
+  > .editor
+  // Now write JavaScript code
+  let a = 5;
+  let b = 10;
+  console.log(a + b);
+  (ctrl + D to execute)
+
+4. Load External Files
+  To run an external JavaScript file in REPL:
+  > .load myScript.js
+
+5. Exit REPL
+  > .exit
+  # OR use Ctrl + C (twice)
+
+Why Use REPL?
+> Test small JavaScript snippets quickly.
+> Debug Node.js applications interactively.
+> Explore built-in modules (fs, http, etc.).

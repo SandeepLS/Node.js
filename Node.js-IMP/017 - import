@@ -1,0 +1,4 @@
+How to import a module in Node.js ?
+Ans: Use the 'require()' function, to import external modules, 
+storing the result in a variable, for use in the application.
+

@@ -1,0 +1,40 @@
+What is Diff BW Node.js & AJAX ?
+Ans:
+Node.js is sever-side runtime environment, while
+AJAX is client-side technique, for asynchronously updating part of a web page(ex: HTTP request).
+
+Node.js is, Runs on the server (built on Chrome's V8 engine), while
+AJAX is Runs in the browser (JavaScript in the frontend).
+
+Node.js is Used for building backend services, APIs, and handling database operations, while
+AJAX is Used for fetching data from the server and updating web pages without reloading.
+
+Node.js is Usage: Backend development, REST APIs, WebSockets, file handling, etc, While
+AJAX is Usage: Fetching dynamic content, form submission, live updates, etc.
+
+Node.js is supports asynchronous I/O operations, while
+AJAX is performs asynchronous HTTP requests.
+
+Example
+Node.js is A web server handling multiple client requests, while
+AJAX is Fetching new data without reloading the page (e.g., live search).
+
+----------------------------------------------------------------------------
+Example of Node.js (Backend Server):-
+  const express = require('express');
+  const app = express();
+  
+  app.get('/data', (req, res) => {
+      res.json({ message: "Hello from Node.js server!" });
+  });
+  
+  app.listen(3000, () => console.log('Server running on port 3000'));
+
+Example of AJAX (Client-side JavaScript):-
+  fetch('/data')
+      .then(response => response.json())
+      .then(data => console.log(data.message));
+
+
+> Node.js is for backend development (server-side).
+> AJAX is for fetching data dynamically in the frontend.

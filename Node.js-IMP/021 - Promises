@@ -1,0 +1,3 @@
+What are promises?
+Promises are object, that handle asynchronous, providing cleaner alternative to callback function.
+

@@ -1,3 +1,3 @@
 What is Package.json ?
-Ans: 'package.json' is a metadata file in Node.js,
+Ans: 'package.json' is a metadata file in Node.js, 
 that contains information about the project, such as dependencies, scripts, and version.

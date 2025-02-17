@@ -1,0 +1,90 @@
+Callback Hell (also known as Pyramid of Doom):-
+It happens when multiple nested callbacks make the code hard to read, debug, and maintain.
+It usually occurs in asynchronous JavaScript operations, like database queries, file operations, or API calls.
+
+Example of Callback Hell:-
+Imagine we have a series of asynchronous tasks that depend on each other, like reading a file, processing data, and saving it.
+const fs = require('fs');
+
+fs.readFile('file1.txt', 'utf8', (err, data1) => {
+    if (err) throw err;
+    console.log('File 1 read:', data1);
+
+    fs.readFile('file2.txt', 'utf8', (err, data2) => {
+        if (err) throw err;
+        console.log('File 2 read:', data2);
+
+        fs.writeFile('output.txt', data1 + data2, (err) => {
+            if (err) throw err;
+            console.log('Output file written');
+        });
+    });
+});
+
+Problems with Callback Hell
+❌ Deep nesting makes it difficult to read and debug.
+❌ Error handling becomes complex (repetitive if (err) throw err;).
+❌ Hard to maintain when adding new functionality.
+---------------------------------------------------
+
+Solutions to Avoid Callback Hell
+1. Using Named Functions
+  Break the code into separate functions to improve readability.
+  const fs = require('fs');
+  
+  function readFile1(callback) {
+      fs.readFile('file1.txt', 'utf8', callback);
+  }
+  
+  function readFile2(data1, callback) {
+      fs.readFile('file2.txt', 'utf8', (err, data2) => {
+          if (err) return callback(err);
+          callback(null, data1, data2);
+      });
+  }
+  
+  function writeFile(data1, data2, callback) {
+      fs.writeFile('output.txt', data1 + data2, callback);
+  }
+  
+  // Execute in sequence
+  readFile1((err, data1) => {
+      if (err) throw err;
+      readFile2(data1, (err, data1, data2) => {
+          if (err) throw err;
+          writeFile(data1, data2, (err) => {
+              if (err) throw err;
+              console.log('Output file written');
+          });
+      });
+  });
+  
+2. Using Promises (Chaining)
+  Promises make asynchronous code more readable by replacing nested callbacks with .then()
+  const fs = require('fs').promises;
+  
+  fs.readFile('file1.txt', 'utf8')
+      .then(data1 => {
+          return fs.readFile('file2.txt', 'utf8').then(data2 => ({ data1, data2 }));
+      })
+      .then(({ data1, data2 }) => fs.writeFile('output.txt', data1 + data2))
+      .then(() => console.log('Output file written'))
+      .catch(err => console.error(err));
+
+3. Using Async/Await (Best Approach)
+  Async/Await provides a synchronous-like flow while keeping the non-blocking nature of Node.js.
+  const fs = require('fs').promises;
+  
+  async function processFiles() {
+      try {
+          const data1 = await fs.readFile('file1.txt', 'utf8');
+          const data2 = await fs.readFile('file2.txt', 'utf8');
+          await fs.writeFile('output.txt', data1 + data2);
+          console.log('Output file written');
+      } catch (err) {
+          console.error(err);
+      }
+  }
+  
+  processFiles();
+

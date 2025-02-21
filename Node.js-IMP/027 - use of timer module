@@ -1,0 +1,39 @@
+What is the use of timer module in node.js:-
+The timers module in Node.js, provide functions to schedule the execution of code,
+after a specified delay or in the next event loop cycle.
+
+Key Functions:
+1. setTimeout(callback, delay, ...args)
+  Executes the callback function after the given delay (in milliseconds).
+  Ex: 
+  setTimeout(() => {
+      console.log("Executed after 2 seconds");
+  }, 2000);
+  
+2. setInterval(callback, delay, ...args)
+  Executes the callback function repeatedly at the specified delay.
+  Ex:
+  setInterval(() => {
+      console.log("Runs every 3 seconds");
+  }, 3000);
+
+3. setImmediate(callback, ...args)
+  Executes the callback immediately after the current event loop cycle.
+  Ex:
+  setImmediate(() => {
+      console.log("Executed in the next event loop cycle");
+  });
+
+4. process.nextTick(callback, ...args) (Not part of timers module but similar)
+  Executes the callback before I/O operations and even before setImmediate().
+  Runs at the end of the current event loop phase
+  Ex:
+  process.nextTick(() => {
+      console.log("Executed before setImmediate()");
+  });
+
+5. clearTimeout(timeoutId) & clearInterval(intervalId)
+  Stops a setTimeout or setInterval before it executes.
+  Ex:
+  let timer = setTimeout(() => console.log("This won't run"), 5000);
+  clearTimeout(timer);

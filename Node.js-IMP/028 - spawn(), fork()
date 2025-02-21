@@ -1,0 +1,4 @@
+spawn():- runs a new process from the command line.
+
+forl():- create a new instance of the existing process, to perform parallel tasks.
+

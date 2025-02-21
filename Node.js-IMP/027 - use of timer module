@@ -18,14 +18,14 @@ Key Functions:
   }, 3000);
 
 3. setImmediate(callback, ...args)
-  Executes the callback immediately after the current event loop cycle.
+  Executes the callback immediately, after the current event loop cycle(I/O events).
   Ex:
   setImmediate(() => {
       console.log("Executed in the next event loop cycle");
   });
 
 4. process.nextTick(callback, ...args) (Not part of timers module but similar)
-  Executes the callback before I/O operations and even before setImmediate().
+  Executes the callback before I/O operations, and even before setImmediate().
   Runs at the end of the current event loop phase
   Ex:
   process.nextTick(() => {

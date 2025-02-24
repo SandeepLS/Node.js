@@ -1,0 +1,2 @@
+The PUT request method updates, an entry at the backend by, removing it entirely and replacing it with a new one.
+The PATCH request method updates, an entry at the backend by, updating or filling in missing data in already existing data.

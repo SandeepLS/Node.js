@@ -1,0 +1,41 @@
+body-parser:-
+body-parser is a middleware in Node.js, 
+that parses incoming request bodies before your application processes them.
+It is commonly used in Express.js applications to handle POST, PUT, and PATCH requests with JSON, URL-encoded, or raw data.
+
+npm install body-parser
+
+Example:- 
+1. Parsing JSON Data
+const express = require('express');
+const app = express();
+
+// Middleware to parse JSON data
+app.use(express.json());
+
+app.post('/data', (req, res) => {
+    console.log(req.body); // Access parsed JSON data
+    res.send('JSON data received');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+Now, if you send a POST request with JSON data:
+{
+    "name": "John",
+    "age": 25
+}
+
+You can access it in req.body as:
+{ name: 'John', age: 25 }
+
+-------------------------------------------------------------------------
+2. Parsing URL-Encoded Data
+Useful for form submissions.
+app.use(express.urlencoded({ extended: true }));
+
+Example Form Submission:
+name=John&age=25
+
+Accessible as:
+{ name: 'John', age: '25' }

@@ -1,0 +1,29 @@
+CORS in node.js:-
+CORS - stand for Cross-Orign Resource Sharing, It allowing restricted resources on a web page,
+to be requested from another domain.
+
+CORS is a security feature in web browsers, that restricts/Prohibits/Limits cross-origin requests. 
+It allows or blocks web pages from making requests to a different domain than the one that served the web page.
+
+Why is CORS Needed:-
+By default, browsers follow the Same-Origin Policy (SOP), which means:
+-> Allowed: Requests within the same domain (e.g., example.com to example.com).
+-> Blocked: Requests from a different domain (e.g., example.com to api.example2.com).
+CORS overcomes this restriction by allowing servers to specify which domains can access their resources.
+
+How to Enable CORS in Node.js (Express):-
+1. Install the CORS Package
+  npm install cors
+
+2. Use cors Middleware in Your Express App
+  const express = require('express');
+  const cors = require('cors');  // Import cors package
+  const app = express();
+  
+  app.use(cors());  // Enable CORS for all routes
+  
+  app.get('/data', (req, res) => {
+      res.json({ message: 'CORS enabled response' });
+  });
+  
+  app.listen(3000, () => console.log('Server running on port 3000'));
